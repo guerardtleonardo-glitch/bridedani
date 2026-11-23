@@ -95,7 +95,7 @@ window.CONFIG = {
     recados: "pode caprichar!"
   },
   textoNoiva: "Um pouquinho de mim antes do grande dia: as fases, as risadas e as pessoas que me trouxeram até aqui.",
-  textoCasal: "Do primeiro encontro até o pedido debaixo da árvore. Agora falta pouquinho para o sim!",
+  textoCasal: "Do primeiro encontro até o pedido, cada capítulo nos trouxe até aqui. Agora falta pouquinho para o sim, debaixo da árvore onde vamos nos casar!",
   fotosPretoEBranco: true, // fotos reais em preto e branco, como no modelo (aquarelas ficam coloridas)
 
   medidas: { "Sutiã": "44 ou 45", "Calcinha": "P", "Camisola / pijama": "P" },
