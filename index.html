@@ -57,10 +57,9 @@ h2{font-size:clamp(2.7rem,6vw,4.4rem);color:var(--vermelho)}
 .foto .laco{position:absolute;z-index:3;left:var(--lx,50%);top:-26px;width:var(--lw,50px);transform:translateX(-50%) rotate(var(--lr,0deg));color:var(--vermelho)}
 
 /* ====== capa: foto em tela cheia, texto por cima do lado das flores ====== */
-.capa{position:relative;min-height:min(92vh,880px);display:flex;align-items:center;justify-content:flex-end;color:var(--branco);background:var(--vinho-dk);overflow:hidden}
-.capa-img{position:absolute;left:0;top:0;bottom:0;width:auto;height:100%;aspect-ratio:1600/1272;max-width:78%;background:var(--capa-l,none) left 30%/cover no-repeat;-webkit-mask-image:linear-gradient(90deg,#000 62%,transparent 98%);mask-image:linear-gradient(90deg,#000 62%,transparent 98%)}
-.capa::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at 85% 50%,rgba(176,30,43,.35),transparent 60%),linear-gradient(0deg,rgba(62,13,22,.35),rgba(62,13,22,0) 30%)}
-.capa .in{position:relative;z-index:2;width:min(540px,100%);margin-right:clamp(22px,6vw,7rem);padding-block:5rem}
+.capa{position:relative;min-height:min(92vh,880px);display:flex;align-items:center;justify-content:flex-end;color:var(--branco);background:var(--vinho-dk) var(--capa-l,none) left 6%/cover no-repeat;overflow:hidden}
+.capa::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(62,13,22,0) 38%,rgba(62,13,22,.38) 56%,rgba(62,13,22,.6) 100%),linear-gradient(0deg,rgba(62,13,22,.4),rgba(62,13,22,0) 32%)}
+.capa .in{position:relative;z-index:2;width:min(520px,42%);margin-right:clamp(22px,6vw,7rem);padding-block:5rem}
 .capa .marca{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.6rem;font-family:var(--f-script);font-size:1.9rem;line-height:1}
 .capa .marca .laco-ico{width:40px;color:var(--branco)}
 .capa .rotulo{color:var(--blush)}
@@ -72,10 +71,9 @@ h2{font-size:clamp(2.7rem,6vw,4.4rem);color:var(--vermelho)}
 .contagem b{display:block;font-family:var(--f-disp);font-weight:500;font-size:2.1rem;line-height:1;font-variant-numeric:lining-nums tabular-nums}
 .contagem span{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;opacity:.85}
 @media (max-width:860px){
-  .capa-img{display:none}
   .capa{min-height:min(100svh,900px);align-items:flex-end;justify-content:center;background-repeat:no-repeat;background-image:var(--capa-m,var(--capa-l,none));background-position:center 0%;background-size:100% auto;background-color:var(--vinho-dk)}
   .capa::before{background:linear-gradient(180deg,rgba(62,13,22,0) 34%,rgba(62,13,22,.62) 50%,rgba(62,13,22,.96) 62%,#3e0d16 68%)}
-  .capa .in{margin:0;padding:0 22px 2rem;text-align:center}
+  .capa .in{margin:0;padding:0 22px 2rem;text-align:center;width:100%}
   .capa .marca{display:none}
   .capa .rotulo{margin-bottom:.5rem}
   .capa h1{font-size:clamp(2.5rem,11vw,3.4rem)}
@@ -312,8 +310,7 @@ textarea{min-height:110px;resize:vertical;border:1px solid var(--linha);padding:
 </head>
 <body>
 
-<header class="capa" id="inicio">
-  <div class="capa-img" role="img" aria-label="Foto da noiva"></div>
+<header class="capa" id="inicio" role="img" aria-label="Foto da noiva">
   <div class="in">
     <div class="marca"><span class="laco-ico" data-svg="laco"></span><span id="marca-casal">Dani &amp; Léo</span></div>
     <span class="rotulo">chá de cozinha &amp; lingerie</span>
