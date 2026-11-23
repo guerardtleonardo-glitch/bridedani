@@ -46,8 +46,8 @@ Além disso, quem confirma presença pode tocar em **Adicionar à agenda**, e o 
 
 ## 4. Publicar no GitHub Pages
 
-1. Envie todos os arquivos desta pasta para um repositório **público** (ex.: `noivadani`).
+1. Envie todos os arquivos desta pasta para um repositório **público** (ex.: `bridedani`).
 2. No repositório: **Settings > Pages > Build and deployment**, Source: **Deploy from a branch**, Branch: **main** / **(root)** e salve.
-3. Em 1 ou 2 minutos o site fica em `https://guerardtleonardo-glitch.github.io/noivadani/`.
+3. Em 1 ou 2 minutos o site fica em `https://guerardtleonardo-glitch.github.io/bridedani/`.
 
 Atenção: o site e as fotos ficam públicos para quem tiver o link.

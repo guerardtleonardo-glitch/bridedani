@@ -11,7 +11,7 @@ const DATA_EVENTO = '2026-12-13';          // mesma data do config.js (ano-mês-
 const HORA_EVENTO = '14h';
 const LOCAL_EVENTO = 'Salão de festas do Flex 2 — Via Transversal Sul, 200, Osasco';
 const NOME_NOIVA = 'Dani';
-const LINK_SITE = 'https://guerardtleonardo-glitch.github.io/noivadani/';
+const LINK_SITE = 'https://guerardtleonardo-glitch.github.io/bridedani/';
 // =========================
 
 const ABAS = {
