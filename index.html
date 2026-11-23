@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>A Dani vai casar</title>
+<meta name="description" content="Chá de Cozinha & Lingerie da Dani: confirme presença, escolha um presente e deixe um recado.">
+<meta property="og:title" content="a dani vai casar. · chá de cozinha & lingerie">
+<meta property="og:description" content="Confirme sua presença, escolha um presente e deixe um recado para a noiva.">
+<meta property="og:image" content="fotos/casal-aquarela.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Jost:wght@300;400;500&family=Pinyon+Script&family=Dancing+Script:wght@500;600&display=swap">
+<style>
+/* Editorial em blocos de cor: branco, rosa e vermelho; títulos minúsculos com ponto final; laços, taças, xoxo e bride a traço fino */
+:root{
+  --branco:#fffaf8; --creme:#f8eeea; --blush:#f4d7d9; --rosa:#e7a8ae; --vermelho:#b01e2b; --vinho:#561420; --vinho-dk:#3e0d16;
+  --tinta:#3b1418; --muted:#8c5b61; --linha:#ead0d0;
+  --f-disp:"Fraunces",Georgia,serif;
+  --f-corpo:"Jost","Helvetica Neue",Arial,sans-serif;
+  --f-script:"Pinyon Script","Great Vibes",cursive;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--branco);color:var(--tinta);font-family:var(--f-corpo);font-weight:300;font-size:16.5px;line-height:1.7;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--vermelho);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(22px,env(safe-area-inset-left));padding-right:max(22px,env(safe-area-inset-right))}
+section{position:relative}
+h1,h2,h3{font-family:var(--f-disp);font-weight:600;letter-spacing:-.025em;line-height:.95;margin:0;text-transform:lowercase;font-variation-settings:"SOFT" 60}
+h2{font-size:clamp(2.7rem,6vw,4.4rem);color:var(--vermelho)}
+.rotulo{display:block;font-weight:500;font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--vermelho);margin-bottom:1rem}
+.script{font-family:var(--f-script);font-weight:400;line-height:1}
+.ico{display:inline-block;width:1.2em;height:1.2em;vertical-align:-.25em}
+.pb{filter:grayscale(1) contrast(1.03)}
+
+/* botões em pílula */
+.btn{appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--f-corpo);font-weight:400;font-size:.86rem;letter-spacing:.04em;text-transform:lowercase;padding:.72rem 1.5rem;border-radius:999px;border:1px solid var(--vermelho);background:var(--vermelho);color:var(--branco);cursor:pointer;text-decoration:none;transition:background .25s,color .25s,transform .25s}
+.btn:hover{background:var(--vinho);border-color:var(--vinho)}
+.btn.contorno{background:transparent;color:var(--vermelho)}
+.btn.contorno:hover{background:var(--vermelho);color:var(--branco)}
+.btn.claro{background:var(--branco);border-color:var(--branco);color:var(--vermelho)}
+.btn.claro:hover{background:var(--blush);border-color:var(--blush)}
+.btn.claro.contorno{background:transparent;color:var(--branco)}
+.btn.claro.contorno:hover{background:var(--branco);color:var(--vermelho)}
+.btn.min{padding:.45rem 1rem;font-size:.78rem}
+.btn[disabled]{opacity:.55;cursor:wait}
+
+/* foto com moldura branca */
+.foto{position:relative;margin:0;background:#fff;padding:8px 8px 0;box-shadow:0 14px 30px rgba(59,20,24,.16);transform:rotate(var(--r,0deg));transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.foto:hover{transform:rotate(0deg) scale(1.03);z-index:5}
+.foto img{width:100%;object-fit:cover;aspect-ratio:var(--ar,4/5);background:var(--blush)}
+.foto figcaption{font-family:var(--f-script);font-size:1.45rem;color:var(--vermelho);text-align:center;padding:.35rem .2rem .4rem;line-height:1.1}
+.foto:not(:has(figcaption)){padding-bottom:8px}
+.foto .laco{position:absolute;z-index:3;left:var(--lx,50%);top:-26px;width:var(--lw,50px);transform:translateX(-50%) rotate(var(--lr,0deg));color:var(--vermelho)}
+
+/* ====== capa: foto em tela cheia, texto por cima do lado das flores ====== */
+.capa{position:relative;min-height:min(92vh,880px);display:flex;align-items:center;justify-content:flex-end;color:var(--branco);background:var(--vinho) var(--capa-l,none) 28% 30%/cover no-repeat;overflow:hidden}
+.capa::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(62,13,22,0) 28%,rgba(62,13,22,.45) 50%,rgba(62,13,22,.82) 78%),linear-gradient(0deg,rgba(62,13,22,.35),rgba(62,13,22,0) 30%)}
+.capa .in{position:relative;width:min(560px,100%);margin-right:clamp(22px,6vw,7rem);padding-block:5rem}
+.capa .marca{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.6rem;font-family:var(--f-script);font-size:1.9rem;line-height:1}
+.capa .marca .laco-ico{width:40px;color:var(--branco)}
+.capa .rotulo{color:var(--blush)}
+.capa h1{font-size:clamp(3.2rem,6.4vw,6rem);font-weight:500;color:var(--branco);text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.capa .sub{font-family:var(--f-script);font-size:clamp(2rem,3.6vw,2.8rem);margin-top:.7rem;color:var(--blush)}
+.capa .data{margin-top:1.6rem;font-weight:500;font-size:.76rem;letter-spacing:.3em;text-transform:uppercase}
+.capa .ctas{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
+.contagem{display:flex;gap:1.8rem;margin-top:1.8rem}
+.contagem b{display:block;font-family:var(--f-disp);font-weight:500;font-size:2.1rem;line-height:1;font-variant-numeric:lining-nums tabular-nums}
+.contagem span{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;opacity:.85}
+@media (max-width:860px){
+  .capa{min-height:min(100svh,900px);align-items:flex-end;justify-content:center;background-image:var(--capa-m,var(--capa-l,none));background-position:center 0%;background-size:100% auto;background-color:var(--vinho-dk)}
+  .capa::before{background:linear-gradient(180deg,rgba(62,13,22,0) 34%,rgba(62,13,22,.62) 50%,rgba(62,13,22,.96) 62%,#3e0d16 68%)}
+  .capa .in{margin:0;padding:0 22px 2rem;text-align:center}
+  .capa .marca{display:none}
+  .capa .rotulo{margin-bottom:.5rem}
+  .capa h1{font-size:clamp(2.5rem,11vw,3.4rem)}
+  .capa .sub{font-size:1.9rem;margin-top:.4rem}
+  .capa .data{margin-top:1rem;font-size:.66rem;letter-spacing:.22em}
+  .capa .contagem{margin-top:1rem;gap:1.4rem}
+  .capa .contagem b{font-size:1.6rem}
+  .capa .ctas{margin-top:1.3rem}
+  .capa .contagem,.capa .ctas{justify-content:center}
+}
+
+/* rabiscos à mão */
+.rabisco{display:inline-flex;align-items:center;gap:.35rem;font-family:"Dancing Script",var(--f-script);font-weight:500;font-size:1.65rem;line-height:1.1;color:var(--vermelho);transform:rotate(var(--rr,-5deg));white-space:nowrap}
+.rabisco svg{width:50px;height:28px;flex:none}
+.titulo-c{position:relative;text-align:center;margin-bottom:3rem}
+.titulo-c p{max-width:46ch;margin:1rem auto 0}
+.titulo-c .rabisco{position:absolute;right:max(0px,calc(50% - 520px));top:-.6rem}
+@media (max-width:900px){.titulo-c .rabisco{position:static;margin-top:.8rem;white-space:normal;justify-content:center}}
+
+/* faixa bride */
+.faixa{background:var(--vermelho);color:var(--branco);overflow:hidden;padding:.55rem 0}
+.faixa .trilho-txt{display:flex;width:max-content;animation:rolar 50s linear infinite}
+.faixa span{display:inline-flex;align-items:center;gap:1.3rem;padding-right:1.3rem;white-space:nowrap;font-weight:500;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase}
+.faixa i{font-family:var(--f-script);font-style:normal;font-size:1.35rem;letter-spacing:0;text-transform:none}
+.faixa svg{width:22px;color:var(--blush)}
+@keyframes rolar{to{transform:translateX(-50%)}}
+nav.menu{position:sticky;top:0;z-index:30;background:rgba(255,250,248,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
+nav.menu .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:56px}
+nav.menu .logo{font-family:var(--f-script);font-size:1.7rem;color:var(--vermelho);text-decoration:none;white-space:nowrap}
+nav.menu ul{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+nav.menu ul::-webkit-scrollbar{display:none}
+nav.menu ul a{font-size:.82rem;text-transform:lowercase;text-decoration:none;white-space:nowrap}
+nav.menu ul a:hover{color:var(--vermelho)}
+@media (max-width:900px){nav.menu .logo{display:none}nav.menu ul{gap:1.1rem}}
+
+/* ====== painéis lado a lado ====== */
+.dupla{display:grid;grid-template-columns:1.15fr 1fr}
+@media (max-width:860px){.dupla{grid-template-columns:1fr}}
+.painel{padding:5rem clamp(22px,5vw,4.5rem);min-width:0}
+.creme{background:var(--creme)}
+.branco{background:var(--branco)}
+.blush{background:var(--blush)}
+.vermelho{background:var(--vermelho);color:var(--branco)}
+.vinho{background:var(--vinho);color:var(--branco)}
+.vermelho h2,.vinho h2{color:var(--branco)}
+.vermelho .rotulo,.vinho .rotulo{color:var(--blush)}
+
+/* oi + o que você precisa saber */
+.oi .grade-oi{display:grid;grid-template-columns:1.1fr .9fr;gap:2.4rem;align-items:start}
+@media (max-width:560px){.oi .grade-oi{grid-template-columns:1fr}}
+.oi p{margin:1.1rem 0 0;max-width:42ch}
+.oi .foto{--r:3deg;--ar:3/4;margin-top:1.4rem}
+.oi .xoxo{font-family:var(--f-script);font-size:2.4rem;color:var(--vermelho);margin-top:1.6rem;line-height:1}
+.info{display:flex;flex-direction:column}
+.info .selo-taca{width:84px;height:84px;border:1px solid rgba(255,250,248,.6);border-radius:50%;display:grid;place-items:center;margin:0 0 1.6rem}
+.info .selo-taca svg{width:50px;color:var(--branco)}
+.info .script.t{font-size:2.4rem;margin-bottom:1.4rem}
+.info ul{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+.info li{display:grid;grid-template-columns:28px 1fr;gap:.8rem;align-items:start;font-size:.95rem;line-height:1.5}
+.info li svg{width:26px;color:var(--blush);margin-top:.1rem}
+.info li b{display:block;font-weight:500;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--blush)}
+
+/* detalhes com ícones */
+.detalhes{padding-block:6rem}
+.icones{display:grid;grid-template-columns:repeat(4,1fr);gap:3.4rem 2rem;max-width:1100px;margin:0 auto}
+@media (max-width:980px){.icones{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.icones{grid-template-columns:repeat(2,1fr);gap:2.6rem 1.2rem}}
+.icone{text-align:center;min-width:0}
+.icone svg{width:78px;height:78px;margin:0 auto 1rem;display:block;color:var(--vermelho)}
+.icone h3{font-family:var(--f-corpo);font-weight:500;font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;margin:0 0 .5rem;line-height:1.3;color:var(--tinta)}
+.icone p{margin:0 auto;max-width:27ch;font-size:.98rem;line-height:1.55;color:var(--muted)}
+.icone.destaque h3{color:var(--vermelho)}
+
+/* a noiva */
+.noiva{padding-block:6rem}
+.noiva .topo{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+@media (max-width:820px){.noiva .topo{grid-template-columns:1fr}}
+.pilha{position:relative;min-height:470px}
+.pilha .foto{position:absolute}
+.pilha .foto:nth-child(1){width:60%;left:4%;top:20px;--r:-4deg;--ar:4/5}
+.pilha .foto:nth-child(2){width:50%;right:4%;bottom:0;--r:4deg;--ar:4/5}
+@media (max-width:820px){.pilha{min-height:0;aspect-ratio:1/1;max-width:480px;width:100%;margin:0 auto}}
+.noiva .txt p{max-width:44ch;margin:1.2rem 0 1.6rem}
+.galeria{display:grid;grid-template-columns:repeat(5,1fr);gap:1.4rem;margin-top:5rem;align-items:start}
+.galeria .foto{--ar:3/4}
+.galeria .foto:nth-child(odd){--r:-2.5deg}.galeria .foto:nth-child(even){--r:2deg;margin-top:1.6rem}
+.galeria .foto:nth-child(3){--r:-1deg}
+@media (max-width:900px){.galeria{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:520px){.galeria{grid-template-columns:repeat(2,1fr);gap:1.6rem 1rem}}
+
+/* nós dois — três colunas */
+.nos{display:grid;grid-template-columns:1fr 1.25fr 1fr;min-height:620px}
+@media (max-width:980px){.nos{grid-template-columns:1fr 1fr}.nos .alta{display:none}}
+@media (max-width:640px){.nos{grid-template-columns:1fr}}
+.nos .vinho{display:flex;flex-direction:column;justify-content:center}
+.nos .vinho p{max-width:34ch;margin:1.2rem 0 0;opacity:.92}
+.nos .vinho .script{font-size:2.2rem;margin-top:1.8rem;color:var(--blush)}
+.nos .cards{background:var(--creme);padding:3.6rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;align-content:center}
+.card-foto{background:var(--blush);border:1px solid var(--vermelho);border-radius:16px;padding:12px 12px 6px;text-align:center;transform:rotate(var(--r,0deg));transition:transform .4s}
+.card-foto:hover{transform:rotate(0) translateY(-4px)}
+.card-foto:nth-child(1){--r:-1.5deg}.card-foto:nth-child(2){--r:1.5deg;margin-top:1.6rem}.card-foto:nth-child(3){--r:1deg}.card-foto:nth-child(4){--r:-1.2deg;margin-top:1.6rem}
+.card-foto img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px;background:var(--branco)}
+.card-foto span{display:block;font-family:var(--f-script);font-size:1.4rem;color:var(--vermelho);line-height:1.1;padding:.4rem 0 .2rem}
+.nos .alta{background:var(--blush) center/cover no-repeat;min-height:100%}
+
+/* tira em script */
+.tira-script{background:var(--vermelho);color:var(--branco);text-align:center;padding:.8rem 22px}
+.tira-script span{font-family:var(--f-script);font-size:2rem;line-height:1}
+
+/* programação */
+.prog-sec{padding-block:5.5rem}
+.prog-sec .cols{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:center}
+@media (max-width:820px){.prog-sec .cols{grid-template-columns:1fr;gap:2.4rem}}
+.torre{width:100%;max-width:340px;margin:0 auto;color:var(--vermelho)}
+.torre svg{width:100%;height:auto;display:block}
+.prog{list-style:none;margin:2rem 0 0;padding:0}
+.prog li{display:grid;grid-template-columns:5.2rem 1fr;gap:1rem;align-items:baseline;padding:1rem 0;border-bottom:1px solid var(--linha)}
+.prog b{font-family:var(--f-disp);font-weight:500;font-size:1.6rem;color:var(--vermelho);font-variant-numeric:lining-nums tabular-nums}
+.prog span{font-size:1rem}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:4rem}
+.trio .foto:nth-child(1){--r:-2deg}.trio .foto:nth-child(2){--r:1.5deg;margin-top:1.6rem}.trio .foto:nth-child(3){--r:-1deg}
+@media (max-width:600px){.trio{grid-template-columns:1fr 1fr}.trio .foto:nth-child(3){grid-column:1/-1;width:62%;margin:0 auto}}
+
+/* presentes */
+.presentes{padding-block:6rem;background:var(--branco)}
+.presentes .cab{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;margin-bottom:2.6rem}
+@media (max-width:820px){.presentes .cab{grid-template-columns:1fr}}
+.presentes .cab p{margin:0;max-width:46ch}
+.controles{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.6rem}
+.abas-wrap{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.2rem}
+.abas{display:flex;gap:.5rem}
+.psiu{--rr:-4deg}
+@media (max-width:560px){.psiu{white-space:normal;font-size:1.45rem}}
+.aba{appearance:none;font-family:var(--f-corpo);font-size:.9rem;text-transform:lowercase;padding:.55rem 1.3rem;border-radius:999px;border:1px solid var(--vermelho);background:transparent;color:var(--vermelho);cursor:pointer}
+.aba[aria-selected=true]{background:var(--vermelho);color:var(--branco)}
+.filtros{display:flex;gap:1rem}
+.chip{appearance:none;background:none;border:0;border-bottom:1px solid transparent;font-family:var(--f-corpo);font-size:.82rem;text-transform:lowercase;color:var(--muted);padding:.2rem 0;cursor:pointer}
+.chip[aria-pressed=true]{color:var(--vermelho);border-bottom-color:var(--vermelho)}
+.progresso{margin-bottom:2rem;font-size:.9rem;color:var(--muted);font-variant-numeric:lining-nums}
+.trilho{height:4px;border-radius:4px;background:var(--blush);margin-top:.5rem;overflow:hidden}
+.trilho i{display:block;height:100%;width:0;background:var(--vermelho);transition:width .7s}
+.medidas{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem 1.6rem;background:var(--creme);border-radius:16px;padding:1rem 1.4rem;margin-bottom:1.6rem;font-size:.92rem}
+.medidas .t{font-family:var(--f-script);font-size:1.8rem;color:var(--vermelho);line-height:1;margin-right:.4rem}
+.medidas b{font-weight:500;color:var(--vermelho)}
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
+.item{background:var(--blush);border:1px solid var(--vermelho);border-radius:16px;padding:1.3rem 1.2rem 1.1rem;display:flex;flex-direction:column;gap:.25rem;min-width:0;transition:transform .3s,box-shadow .3s}
+.item:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(176,30,43,.12)}
+.item .tag{align-self:flex-start;font-weight:500;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--vermelho);margin-bottom:.4rem}
+.item h3{font-size:1.35rem;line-height:1.1;color:var(--tinta);text-transform:none;letter-spacing:-.01em;font-weight:500}
+.item .preco{font-size:.8rem;color:var(--muted);font-variant-numeric:lining-nums}
+.item .obs{margin:.2rem 0 0;font-size:.88rem;line-height:1.45}
+.item.res{background:var(--branco);border-style:dashed}
+.item.res h3,.item.res .obs,.item.res .preco{opacity:.55}
+.item .reservado{align-self:flex-start;display:inline-flex;align-items:center;gap:.35rem;background:var(--vermelho);color:var(--branco);border-radius:999px;padding:.25rem .8rem;font-size:.76rem;margin-top:.5rem}
+.item .reservado svg{width:16px}
+.item .acoes{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:auto;padding-top:1rem}
+.item form{display:flex;flex-direction:column;gap:.55rem;margin-top:auto;padding-top:.8rem}
+.vazio{grid-column:1/-1;text-align:center;color:var(--muted);padding:2rem 0}
+
+/* local */
+.local .mapa{position:relative;min-height:420px;background:var(--blush)}
+.local .mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:saturate(.7) sepia(.15) hue-rotate(-12deg)}
+.local .vermelho p{max-width:38ch;margin:1.2rem 0 0;opacity:.95}
+.local h3{font-size:1.8rem;text-transform:none;letter-spacing:-.015em;margin-top:1.8rem;font-weight:500}
+.local .end{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;opacity:.85;margin-top:.4rem}
+.local .acoes{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem}
+
+/* confirmar: cartão central */
+.presenca{padding-block:6rem}
+.cartao-form{max-width:620px;margin:0 auto;background:#fff;border:1px solid var(--linha);border-radius:4px;padding:2.8rem clamp(20px,5vw,3.2rem) 2.4rem;box-shadow:0 20px 50px rgba(59,20,24,.08)}
+.campo{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1.6rem}
+.campo label,.legenda{font-weight:400;font-size:.86rem;letter-spacing:.06em;color:var(--muted)}
+input[type=text],input[type=tel],textarea{font-family:var(--f-corpo);font-weight:300;font-size:1.05rem;padding:.6rem .1rem;border:0;border-bottom:1px solid var(--linha);border-radius:0;background:transparent;color:var(--tinta);width:100%}
+input::placeholder,textarea::placeholder{color:var(--rosa)}
+input:focus,textarea:focus{outline:none;border-bottom-color:var(--vermelho)}
+textarea{min-height:110px;resize:vertical;border:1px solid var(--linha);padding:.8rem;border-radius:8px}
+.opcoes{display:grid;gap:.55rem;margin-top:.2rem}
+.opcoes label{display:flex;align-items:center;gap:.8rem;background:var(--blush);border-radius:8px;padding:.95rem 1.1rem;cursor:pointer;font-size:1rem;letter-spacing:.03em;color:var(--tinta);transition:background .2s,color .2s}
+.opcoes label:has(input:checked){background:var(--vermelho);color:var(--branco)}
+.opcoes input{accent-color:var(--branco);width:16px;height:16px}
+.check{display:flex;gap:.7rem;align-items:flex-start;font-size:.95rem;color:var(--muted);margin-bottom:1.8rem}
+.check input{margin-top:.35rem;accent-color:var(--vermelho);width:16px;height:16px}
+.largo{width:100%}
+.agenda{margin-top:1.6rem;padding-top:1.4rem;border-top:1px dashed var(--linha);text-align:center}
+.agenda .rot{display:block;font-family:var(--f-script);font-size:1.8rem;color:var(--vermelho);line-height:1;margin-bottom:.8rem}
+.agenda .bts{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem}
+.ok-box{text-align:center}
+.ok-box .script{font-size:3rem;color:var(--vermelho)}
+.ok-box p{color:var(--muted)}
+.ok-box .acoes{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-top:1.2rem}
+
+/* recados */
+.recados{background:var(--vinho);color:var(--branco);padding-block:5.5rem}
+.recados .cab{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+@media (max-width:820px){.recados .cab{grid-template-columns:1fr}}
+.recados h2{color:var(--branco)}.recados .rotulo{color:var(--blush)}
+.recados p.intro{opacity:.9;max-width:40ch;margin:1.2rem 0 0}
+.recados .form-recado{background:var(--branco);color:var(--tinta);border-radius:18px;padding:1.8rem}
+.recados .form-recado input,.recados .form-recado textarea{background:var(--creme)}
+.mural{columns:3 260px;column-gap:1.2rem;margin-top:4rem}
+.recado{break-inside:avoid;margin:0 0 1.2rem;background:var(--creme);color:var(--tinta);border-radius:14px;padding:1.5rem 1.4rem 1.1rem;transform:rotate(var(--r,0deg))}
+.recado:nth-child(3n+1){--r:-1deg}.recado:nth-child(3n+2){--r:.8deg;background:var(--blush)}.recado:nth-child(3n){--r:-.4deg;background:var(--branco)}
+.recado p{margin:0;font-family:var(--f-disp);font-style:italic;font-size:1.08rem;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+.recado footer{margin-top:.7rem;font-weight:500;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--vermelho)}
+.mural-vazio{opacity:.85;font-style:italic;column-span:all}
+
+/* rodapé */
+.rodape{background:var(--creme);text-align:center;padding-block:4.5rem calc(4.5rem + env(safe-area-inset-bottom))}
+.rodape .laco-ico{width:56px;margin:0 auto;color:var(--vermelho)}
+.rodape .xo{font-family:var(--f-script);font-size:clamp(3rem,8vw,4.6rem);color:var(--vermelho);line-height:1.1;margin-top:.4rem}
+.rodape .rotulo{margin:1rem 0 0;color:var(--muted)}
+.rodape .contato{margin-top:1rem;font-size:.92rem}
+
+.demo{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--vinho-dk);color:var(--branco);text-align:center;font-size:.74rem;padding:.45rem max(16px,env(safe-area-inset-left)) calc(.45rem + env(safe-area-inset-bottom))}
+.toast{position:fixed;left:50%;bottom:calc(50px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--vermelho);color:var(--branco);padding:.75rem 1.4rem;border-radius:999px;font-size:.92rem;max-width:calc(100% - 32px);z-index:50;box-shadow:0 10px 30px rgba(0,0,0,.25);text-align:center}
+[hidden]{display:none!important}
+.revela{transition:opacity 1s,translate 1s}
+.js .revela.antes{opacity:.001;translate:0 16px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.faixa .trilho-txt{animation:none}.js .revela.antes{opacity:1;translate:none}}
+</style>
+</head>
+<body>
+
+<header class="capa" id="inicio" role="img" aria-label="Foto da noiva">
+  <div class="in">
+    <div class="marca"><span class="laco-ico" data-svg="laco"></span><span id="marca-casal">Dani &amp; Léo</span></div>
+    <span class="rotulo">chá de cozinha &amp; lingerie</span>
+    <h1 id="titulo-capa">a dani vai casar.</h1>
+    <div class="sub">vem brindar comigo?</div>
+    <div class="data" id="capa-data"></div>
+    <div class="contagem" aria-label="Contagem regressiva">
+      <div><b id="cd-d">0</b><span>dias</span></div>
+      <div><b id="cd-h">0</b><span>horas</span></div>
+      <div><b id="cd-m">0</b><span>min</span></div>
+    </div>
+    <div class="ctas"><a class="btn claro" href="#presenca">confirmar presença</a><a class="btn claro contorno" href="#presentes">lista de presentes</a></div>
+  </div>
+</header>
+
+<div class="faixa" aria-hidden="true"><div class="trilho-txt" id="faixa"></div></div>
+
+<nav class="menu" aria-label="Seções">
+  <div class="wrap">
+    <a class="logo" href="#inicio" id="logo">xoxo, Dani</a>
+    <ul>
+      <li><a href="#oi">o chá</a></li>
+      <li><a href="#detalhes">detalhes</a></li>
+      <li><a href="#noiva">a noiva</a></li>
+      <li><a href="#nos">nós dois</a></li>
+      <li><a href="#programacao">programação</a></li>
+      <li><a href="#presentes">presentes</a></li>
+      <li><a href="#local">local</a></li>
+      <li><a href="#presenca">confirmar</a></li>
+      <li><a href="#recados">recados</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="dupla oi" id="oi">
+  <div class="painel creme">
+    <div class="grade-oi">
+      <div class="revela">
+        <span class="rotulo">bride club</span>
+        <h2>oi, amiga.</h2>
+        <div id="carta-txt"></div>
+        <div class="xoxo" id="xoxo">xoxo, Dani</div>
+      </div>
+      <div class="revela" id="oi-fotos"></div>
+    </div>
+  </div>
+  <div class="painel vermelho info revela">
+    <div class="selo-taca" data-svg="tacas"></div>
+    <div class="script t">o que você precisa saber</div>
+    <ul id="info"></ul>
+  </div>
+</section>
+
+<section class="detalhes branco" id="detalhes">
+  <div class="wrap">
+    <div class="titulo-c revela"><span class="rotulo">tudo o que você precisa saber</span><h2>detalhes.</h2></div>
+    <div class="icones" id="icones"></div>
+  </div>
+</section>
+
+<section class="blush noiva" id="noiva">
+  <div class="wrap">
+    <div class="topo">
+      <div class="pilha revela" id="pilha"></div>
+      <div class="txt revela">
+        <span class="rotulo">um pouquinho de mim</span>
+        <h2>a noiva.</h2>
+        <p id="texto-noiva"></p>
+        <a class="btn contorno" href="#galeria">ver as fotos</a>
+      </div>
+    </div>
+    <div class="galeria" id="galeria"></div>
+  </div>
+</section>
+
+<section class="nos" id="nos">
+  <div class="painel vinho revela">
+    <span class="rotulo" id="nos-rotulo">Dani &amp; Léo</span>
+    <h2>nós dois.</h2>
+    <p id="texto-casal"></p>
+    <div class="script">pra sempre, xoxo</div>
+  </div>
+  <div class="cards" id="cards"></div>
+  <div class="alta" id="alta" role="img" aria-label="Foto do casal"></div>
+</section>
+
+<div class="tira-script" aria-hidden="true"><span>um brinde ao amor</span></div>
+
+<section class="prog-sec creme" id="programacao">
+  <div class="wrap">
+    <div class="cols">
+      <div class="torre revela" data-svg="torre" aria-hidden="true"></div>
+      <div class="revela">
+        <span class="rotulo">a tarde</span>
+        <h2>programação.</h2>
+        <ul class="prog" id="prog"></ul>
+      </div>
+    </div>
+    <div class="trio revela" id="trio"></div>
+  </div>
+</section>
+
+<section class="presentes" id="presentes">
+  <div class="wrap">
+    <div class="cab">
+      <div><span class="rotulo">lista de presentes</span><h2>mimos para a noiva.</h2></div>
+      <p id="nota-txt"></p>
+    </div>
+    <div class="controles">
+      <div class="abas-wrap"><div class="abas" role="tablist" aria-label="Listas">
+        <button class="aba" role="tab" id="aba-cozinha" data-aba="cozinha" aria-selected="true">cozinha</button>
+        <button class="aba" role="tab" id="aba-lingerie" data-aba="lingerie" aria-selected="false">lingerie</button>
+      </div><span class="rabisco psiu" id="psiu"></span></div>
+      <div class="filtros" role="group" aria-label="Filtrar presentes">
+        <button class="chip" id="f-todos" data-f="todos" aria-pressed="true">todos</button>
+        <button class="chip" id="f-livres" data-f="livres" aria-pressed="false">disponíveis</button>
+        <button class="chip" id="f-res" data-f="reservados" aria-pressed="false">reservados</button>
+      </div>
+    </div>
+    <div class="progresso"><span id="prog-txt">carregando a lista…</span><div class="trilho"><i id="prog-bar"></i></div></div>
+    <div class="medidas" id="medidas" hidden></div>
+    <div class="grade" id="grade" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="dupla local" id="local">
+  <div class="mapa"><iframe id="mapa" title="Mapa do local do chá" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  <div class="painel vermelho revela">
+    <span class="rotulo">onde vai ser</span>
+    <h2>o local.</h2>
+    <h3 id="l-local"></h3>
+    <div class="end" id="l-end"></div>
+    <p id="l-quando"></p>
+    <div class="acoes">
+      <a class="btn claro" id="lnk-maps" target="_blank" rel="noopener">como chegar</a>
+      <a class="btn claro contorno" id="lnk-agenda" target="_blank" rel="noopener">salvar na agenda</a>
+    </div>
+  </div>
+</section>
+
+<section class="presenca creme" id="presenca">
+  <div class="wrap">
+    <div class="titulo-c revela" data-rabisco="presenca"><span class="rotulo" id="rsvp-rot">rsvp</span><h2>confirme sua presença.</h2><p>Deixe seus dados para receber um lembrete no WhatsApp na véspera do chá.</p></div>
+    <div class="cartao-form">
+      <form id="form-rsvp" novalidate>
+        <div class="campo"><label for="r-nome">Nome e sobrenome*</label><input type="text" id="r-nome" maxlength="80" autocomplete="name"></div>
+        <div class="campo"><label for="r-whats">WhatsApp com DDD</label><input type="tel" id="r-whats" inputmode="tel" placeholder="(11) 99999-8888" autocomplete="tel"></div>
+        <div class="campo"><span class="legenda">Você vem?*</span>
+          <div class="opcoes">
+            <label><input type="radio" name="r-vai" id="r-sim" value="sim" checked> Claro, não perco por nada!</label>
+            <label><input type="radio" name="r-vai" id="r-nao" value="nao"> Infelizmente não vou conseguir</label>
+          </div>
+        </div>
+        <div class="campo"><label for="r-obs">Alguma restrição alimentar?</label><input type="text" id="r-obs" maxlength="140"></div>
+        <label class="check"><input type="checkbox" id="r-lembrete" checked> Quero receber o lembrete no WhatsApp um dia antes.</label>
+        <button class="btn largo" type="submit" id="r-enviar">enviar confirmação</button>
+      </form>
+      <div class="ok-box" id="rsvp-ok" hidden>
+        <div class="script" id="ok-titulo">obrigada</div>
+        <p id="ok-txt"></p>
+        <div class="acoes">
+          <a class="btn contorno" href="#presentes">escolher presente</a>
+          <button class="btn contorno" type="button" id="ok-editar">alterar resposta</button>
+        </div>
+      </div>
+      <div class="agenda" id="agenda">
+        <span class="rot">salve a data</span>
+        <div class="bts">
+          <a class="btn" id="lnk-gcal" target="_blank" rel="noopener">adicionar ao google agenda</a>
+          <a class="btn contorno" id="lnk-ics" download="cha-de-cozinha-e-lingerie.ics">iphone / outlook</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="recados" id="recados">
+  <div class="wrap">
+    <div class="cab">
+      <div class="revela" style="position:relative"><span class="rotulo">mural</span><h2>recadinhos para a noiva.</h2><span class="rabisco" id="rab-recados" style="margin-top:1rem;color:var(--blush);--rr:-3deg"></span><p class="intro">Um conselho, uma lembrança ou um desejo para o casal. Tudo aparece aqui no mural.</p></div>
+      <form class="form-recado" id="form-recado" novalidate>
+        <div class="campo"><label for="m-nome">seu nome</label><input type="text" id="m-nome" maxlength="60" autocomplete="name"></div>
+        <div class="campo"><label for="m-texto">sua mensagem</label><textarea id="m-texto" maxlength="600"></textarea></div>
+        <button class="btn largo" type="submit" id="m-enviar">publicar recado</button>
+      </form>
+    </div>
+    <div class="mural" id="mural"></div>
+  </div>
+</section>
+
+<footer class="rodape">
+  <span class="laco-ico" data-svg="laco" style="display:block"></span>
+  <div class="xo" id="rod-xo">xoxo, Dani</div>
+  <span class="rotulo" id="rod-casamento"></span>
+  <div class="contato" id="rod-contato"></div>
+</footer>
+
+<div class="demo" id="demo" hidden>Modo demonstração: as respostas ficam salvas só neste navegador até a planilha ser conectada.</div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="config.js"></script>
+<script>
+document.documentElement.classList.add("js");
+const C=window.CONFIG,$=id=>document.getElementById(id);
+const ITENS=C.itens.map(([id,cat,nome,preco,nota])=>({id,cat,nome,preco,nota}));
+const S={aba:"cozinha",filtro:"todos",reservas:{},recados:[],carregado:false,abrindo:null,ocupado:false};
+const DEMO=!C.apiUrl,PLACE="fotos/placeholder.svg";
+
+/* ================= desenhos a traço ================= */
+const T='fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"';
+const LACO='<svg viewBox="0 0 120 140" '+T+' stroke-width="2.2" aria-hidden="true"><path d="M57 38C52 58 44 76 46 96c1 12-6 24-14 36l9-3 3 9c10-14 16-28 15-42-1-18 3-38 4-58Z"/><path d="M63 38c5 20 14 36 13 56-1 14 4 26 14 38l-9-2-2 9c-10-12-15-26-14-40 1-18-4-40-2-61Z"/><path d="M60 33C50 14 26 2 15 11 6 19 14 38 32 41c10 2 20-1 28-8Z"/><path d="M60 33c10-19 34-31 45-22 9 8 1 27-17 30-10 2-20-1-28-8Z"/><path d="M58 31C47 19 32 13 22 16M62 31c11-12 26-18 36-15" opacity=".55"/><path d="M53 27c4-4 10-4 14 0 1 4 0 9-1 12-4 2-8 2-12 0-1-3-2-8-1-12Z"/></svg>';
+const LACO_P=LACO.replace('stroke-width="2.2"','stroke-width="4"');
+function coupe(x,y){return '<g transform="translate('+x+' '+y+')"><path d="M0 0h52c-2 14-13 21-26 21S2 14 0 0Z"/><path d="M5 5c9 3 33 3 42 0" opacity=".45"/><path d="M26 21v22M14 46c6-3 18-3 24 0"/></g>'}
+function lacoMini(x,y,s){return '<g transform="translate('+x+' '+y+') scale('+s+') translate(-60 -34)">'+LACO.replace(/^<svg[^>]*>|<\/svg>$/g,"")+'</g>'}
+const ICO={
+ laco:LACO.replace('stroke-width="2.2"','stroke-width="2.6"'),
+ calendario:'<svg viewBox="0 0 64 64" '+T+' stroke-width="1.3"><rect x="10" y="14" width="44" height="40" rx="3"/><path d="M10 25h44M21 9v10M43 9v10"/><path d="M32 46c-6-4-10-7-10-11 0-3 2-5 5-5 2 0 4 1 5 3 1-2 3-3 5-3 3 0 5 2 5 5 0 4-4 7-10 11Z"/></svg>',
+ pin:'<svg viewBox="0 0 64 64" '+T+' stroke-width="1.3"><path d="M32 57S14 38 14 25a18 18 0 0 1 36 0c0 13-18 32-18 32Z"/><path d="M32 33c-4-3-7-5-7-8 0-2 1.6-3.6 3.6-3.6 1.5 0 2.7.8 3.4 2.1.7-1.3 1.9-2.1 3.4-2.1 2 0 3.6 1.6 3.6 3.6 0 3-3 5-7 8Z"/></svg>',
+ vestido:'<svg viewBox="0 0 64 64" '+T+' stroke-width="1.3"><path d="M27 7l-1 9 3 6-11 31h28L35 22l3-6-1-9"/><path d="M27 7c2 4 8 4 10 0"/><path d="M32 22c-3-3-7-2-7 1s4 2 7-1c3 3 7 4 7 1s-4-4-7-1M32 22l-3 6M32 22l3 6"/><path d="M21 42c6 2.5 16 2.5 22 0" opacity=".5"/></svg>',
+ presente:'<svg viewBox="0 0 64 64" '+T+' stroke-width="1.3"><rect x="13" y="27" width="38" height="25"/><rect x="10" y="20" width="44" height="7"/><path d="M32 20v32"/><path d="M32 20c-4-8-15-10-15-3 0 4 7 4 15 3zM32 20c4-8 15-10 15-3 0 4-7 4-15 3z"/></svg>',
+ lingerie:'<svg viewBox="0 0 160 172" '+T+' stroke-width="3"><path d="M32 8v36M128 8v36"/><path d="M14 62c4-18 18-27 34-23 14 4 26 14 32 26 6-12 18-22 32-26 16-4 30 5 34 23"/><path d="M14 62c10 14 40 18 66 6 26 12 56 8 66-6"/><path d="M80 66c-6-6-14-4-14 1s8 4 14-1c6 5 14 6 14 1s-8-7-14-1"/><path d="M18 110c30 8 94 8 124 0l-14 14c-12 4-24 16-30 34H62c-6-18-18-30-30-34Z"/><path d="M80 116c-5-5-11-3-11 1s6 3 11-1c5 4 11 5 11 1s-6-6-11-1"/></svg>',
+ carro:'<svg viewBox="0 0 64 64" '+T+' stroke-width="1.3"><path d="M9 41v-6l5-10c1-2 3-3 5-3h26c2 0 4 1 5 3l5 10v6"/><rect x="7" y="35" width="50" height="9" rx="3"/><circle cx="18" cy="46" r="4"/><circle cx="46" cy="46" r="4"/><path d="M18 34l3-8h22l3 8"/></svg>',
+ tacas:'<svg viewBox="0 0 64 64" '+T+' stroke-width="1.3"><path d="M10 14l16 4c0 8-4 12-9 11s-8-6-7-15z"/><path d="M17 29l-3 14M8 42l11 3"/><path d="M54 14l-16 4c0 8 4 12 9 11s8-6 7-15z"/><path d="M47 29l3 14M56 42l-11 3"/><path d="M28 8l1-4M32 9l2-4M36 10l3-3"/></svg>',
+ bule:'<svg viewBox="0 0 64 64" '+T+' stroke-width="1.3"><path d="M17 31c0-7 6-12 15-12s15 5 15 12v5c0 8-6 14-15 14s-15-6-15-14z"/><path d="M47 30c5-2 9 1 8 6s-6 7-9 5"/><path d="M17 33c-4-2-8-6-11-5 1 5 6 10 11 11"/><path d="M25 19c1-3 4-5 7-5s6 2 7 5"/><circle cx="32" cy="11.5" r="2.2"/><path d="M12 53h40"/></svg>'
+};
+const SETA='<svg viewBox="0 0 60 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M57 6C47 22 29 28 7 24"/><path d="M15 17l-9 7 10 5"/></svg>';
+const DES={
+ laco:LACO,
+ tacas:'<svg viewBox="0 0 120 110" '+T+' stroke-width="2.4" aria-hidden="true"><g transform="rotate(-14 38 40)"><path d="M10 18h52c-2 15-13 22-26 22S12 33 10 18Z"/><path d="M36 40v34M22 78c6-4 22-4 28 0"/></g><g transform="rotate(14 82 40)"><path d="M58 18h52c-2 15-13 22-26 22S60 33 58 18Z"/><path d="M84 40v34M70 78c6-4 22-4 28 0"/></g><path d="M56 6l-2-5M60 5V0M64 6l2-5"/></svg>',
+ torre:'<svg viewBox="0 0 230 222" '+T+' stroke-width="1.4" aria-hidden="true">'+coupe(89,22)+coupe(60,70)+coupe(118,70)+coupe(31,118)+coupe(89,118)+coupe(147,118)+coupe(2,166)+coupe(60,166)+coupe(118,166)+coupe(176,166)+lacoMini(115,20,.34)+'<path d="M95 12l-2-7M115 9V2M135 12l2-7" opacity=".6"/></svg>',
+ coracao:'<svg viewBox="0 0 24 22" '+T+' stroke-width="1.6"><path d="M12 20C6 16 2 12 2 7.5 2 4.5 4.3 2.5 7 2.5c2 0 3.6 1.2 5 3 1.4-1.8 3-3 5-3 2.7 0 5 2 5 5 0 4.5-4 8.5-10 12.5Z"/></svg>'
+};
+
+/* ================= utilidades ================= */
+function el(t,a={},...k){const n=document.createElement(t);for(const[x,v]of Object.entries(a)){if(x==="class")n.className=v;else if(x==="text")n.textContent=v;else if(x==="html")n.innerHTML=v;else if(x.startsWith("on"))n.addEventListener(x.slice(2),v);else n.setAttribute(x,v)}k.flat().forEach(c=>c!=null&&n.append(c));return n}
+function toast(m){const t=$("toast");t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,4200)}
+function ls(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k));localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}}
+function token(){let t=ls("cha_token");if(!t){t=Math.random().toString(36).slice(2)+Date.now().toString(36);ls("cha_token",t)}return t}
+function img(src,alt){const i=el("img",{src,alt,loading:"lazy"});i.onerror=()=>{if(!i.src.endsWith(PLACE))i.src=PLACE};return i}
+let nL=0;
+function foto(par,cls="",laco){const [src,leg]=Array.isArray(par)?par:[par,""];const f=el("figure",{class:"foto "+cls},img(src,leg||"Foto"));if(leg)f.append(el("figcaption",{text:leg}));
+  if(laco){const v=[["50%","0deg","50px"],["26%","-14deg","44px"],["74%","12deg","44px"]][nL++%3];f.append(el("span",{class:"laco",style:"--lx:"+v[0]+";--lr:"+v[1]+";--lw:"+v[2],html:LACO_P}))}return f}
+function bgFoto(node,src){const im=new Image();im.onload=()=>node.style.backgroundImage="url('"+src+"')";im.src=src}
+const inicio=new Date(C.dataISO),fim=new Date(inicio.getTime()+C.duracaoHoras*3600e3),TZ={timeZone:"America/Sao_Paulo"};
+const dd=inicio.toLocaleDateString("pt-BR",{day:"numeric",...TZ}),mm=inicio.toLocaleDateString("pt-BR",{month:"long",...TZ}),aa=inicio.toLocaleDateString("pt-BR",{year:"numeric",...TZ});
+const dd2=inicio.toLocaleDateString("pt-BR",{day:"2-digit",...TZ}),mm2=inicio.toLocaleDateString("pt-BR",{month:"2-digit",...TZ});
+const hora=inicio.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit",...TZ}).replace(":00","h").replace(":","h");
+const semana=inicio.toLocaleDateString("pt-BR",{weekday:"long",...TZ});
+const gcal=d=>d.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");
+const agendaUrl="https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent("Chá de Cozinha & Lingerie da "+C.apelidoNoiva)+"&dates="+gcal(inicio)+"/"+gcal(fim)+"&location="+encodeURIComponent(C.local+", "+C.endereco)+"&details="+encodeURIComponent("Dress code: madrinhas de vermelho, convidadas de rosa. Lista de presentes: "+location.href.split("#")[0]);
+
+/* ================= conteúdo ================= */
+function preencher(){
+  $("demo").hidden=!DEMO;
+  document.querySelectorAll("[data-svg]").forEach(n=>{n.innerHTML=DES[n.dataset.svg]||""});
+  const noiva=C.apelidoNoiva,casal=C.apelidoNoiva+" & "+C.apelidoNoivo;
+  document.title="A "+noiva+" vai casar";
+  [["--capa-l",C.fotos.capaHero||C.fotos.local],["--capa-m",C.fotos.capaHeroCelular]].forEach(([v,src])=>{if(!src)return;const im=new Image();im.onload=()=>$("inicio").style.setProperty(v,"url('"+src+"')");im.src=src});
+  $("marca-casal").textContent=casal;
+  $("titulo-capa").textContent="a "+noiva.toLowerCase()+" vai casar.";
+  $("capa-data").textContent=dd2+" · "+mm2+" · "+aa+"  ·  "+C.cidade;
+  const fx=[];const pal=["bride","xoxo","chá de cozinha & lingerie",dd2+"."+mm2+"."+aa,"bride club"];
+  for(let i=0;i<4;i++)pal.forEach((t,j)=>fx.push(el("span",{},j===1?el("i",{text:t}):document.createTextNode(t),el("span",{html:j%2?DES.coracao:LACO_P,style:"padding:0;display:inline-flex;width:"+(j%2?"14px":"20px")}))));
+  $("faixa").replaceChildren(...fx);
+  $("logo").textContent="xoxo, "+noiva;
+  $("carta-txt").replaceChildren(...C.carta.map(t=>el("p",{text:t})));
+  $("xoxo").textContent="xoxo, "+noiva;
+  $("oi-fotos").replaceChildren(foto(C.fotos.carta[0],"",true));
+  const info=[["quando",semana+", "+dd+" de "+mm+", a partir das "+hora],["onde",C.local+" · "+C.cidade],["dress code","madrinhas de vermelho, convidadas de rosa. "+((C.dressCode&&C.dressCode.obs)||"")],["presentes","lista de cozinha e de lingerie aqui no site. Reserve o seu para ninguém repetir."],["confirme até",C.confirmarAte||""]];
+  $("info").replaceChildren(...info.map(([k,v])=>el("li",{},el("span",{html:LACO_P}),el("div",{},el("b",{text:k}),document.createTextNode(v)))));
+  const det=[["calendario","quando",semana+", "+dd+" de "+mm+", a partir das "+hora+"."],["pin","onde",C.local+", "+C.endereco+"."],...C.detalhes.filter(d=>d[0]!=="laco").map(d=>[d[0],d[1],d[2]]),["laco","confirme até",(C.confirmarAte||"")+". É rapidinho, lá embaixo."]];
+  $("icones").replaceChildren(...det.map(([k,t,d],i)=>el("div",{class:"icone revela"+(i<2?" destaque":""),html:ICO[k]||ICO.presente},el("h3",{text:t}),el("p",{text:d}))));
+  $("pilha").replaceChildren(...(C.fotos.noiva.slice(0,2)).map((p,i)=>foto(p,"",i===0)));
+  $("texto-noiva").textContent=C.textoNoiva;
+  $("galeria").replaceChildren(...C.fotos.noiva.slice(2).concat(C.fotos.carta.slice(1)).map((p,i)=>foto(p,"revela",i===2)));
+  $("nos-rotulo").textContent=casal;$("texto-casal").textContent=C.textoCasal;
+  const cf=[C.fotos.casalGrande,...C.fotos.casal].slice(0,4);
+  $("cards").replaceChildren(...cf.map(p=>{const [s,l]=Array.isArray(p)?p:[p,""];return el("div",{class:"card-foto revela"},img(s,l||"Foto do casal"),l?el("span",{text:l}):null)}));
+  bgFoto($("alta"),(C.fotos.filme&&C.fotos.filme.find(f=>/aquarela/.test(f)))||C.fotos.local);
+  $("prog").replaceChildren(...C.programacao.map(([h,t])=>el("li",{},el("b",{text:h}),el("span",{text:t}))));
+  $("trio").replaceChildren(...C.fotos.programacao.map((p,i)=>foto(p,"",i===1)));
+  $("nota-txt").textContent=C.notaPresentes;
+  $("medidas").replaceChildren(el("span",{class:"t",text:"meus tamanhos"}),...Object.entries(C.medidas).map(([k,v])=>el("span",{},k+": ",el("b",{text:v}))));
+  $("l-local").textContent=C.local;$("l-end").textContent=C.endereco;
+  $("l-quando").textContent=semana.charAt(0).toUpperCase()+semana.slice(1)+", "+dd+" de "+mm+", a partir das "+hora+". Chega um pouquinho antes pra gente aproveitar tudo.";
+  const q=encodeURIComponent(C.local+", "+C.endereco);
+  $("mapa").src="https://www.google.com/maps?q="+q+"&output=embed";
+  $("lnk-maps").href="https://www.google.com/maps/search/?api=1&query="+q;
+  $("lnk-agenda").href=agendaUrl;
+  $("rsvp-rot").textContent="rsvp · confirme até "+(C.confirmarAte||"");
+  $("lnk-gcal").href=agendaUrl;
+  const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//cha-da-noiva//PT","BEGIN:VEVENT","UID:cha-"+gcal(inicio)+"@cha-da-noiva","DTSTAMP:"+gcal(new Date()),"DTSTART:"+gcal(inicio),"DTEND:"+gcal(fim),"SUMMARY:Chá de Cozinha & Lingerie da "+C.apelidoNoiva,"LOCATION:"+(C.local+", "+C.endereco).replace(/,/g,"\\,"),"DESCRIPTION:Dress code: madrinhas de vermelho\\, convidadas de rosa. Lista de presentes: "+location.href.split("#")[0],"BEGIN:VALARM","TRIGGER:-P1D","ACTION:DISPLAY","DESCRIPTION:Amanhã é o chá!","END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
+  try{$("lnk-ics").href=URL.createObjectURL(new Blob([ics],{type:"text/calendar"}))}catch(e){$("lnk-ics").href="data:text/calendar;charset=utf-8,"+encodeURIComponent(ics)}
+  const rab=C.rabiscos||{};
+  if(rab.presentes)$("psiu").innerHTML=SETA+'<span></span>',$("psiu").lastChild.textContent=rab.presentes;
+  if(rab.recados)$("rab-recados").textContent=rab.recados;
+  document.querySelectorAll("[data-rabisco]").forEach(t=>{const x=rab[t.dataset.rabisco];if(x)t.append(el("span",{class:"rabisco",html:SETA.replace("<svg",'<svg style="transform:scaleX(-1)"')},el("span",{text:x})))});
+  $("rod-xo").textContent="xoxo, "+noiva;
+  $("rod-casamento").textContent=casal+" · casamento "+C.casamento;
+}
+function contagem(){const s=Math.max(0,(inicio-Date.now())/1000);$("cd-d").textContent=Math.floor(s/86400);$("cd-h").textContent=Math.floor(s%86400/3600);$("cd-m").textContent=Math.floor(s%3600/60)}
+
+/* ================= API (Google Apps Script) ================= */
+async function api(acao,dados={}){
+  if(DEMO)return demo(acao,dados);
+  const r=await fetch(C.apiUrl,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({acao,...dados})});
+  const j=await r.json();if(!j.ok)throw Object.assign(new Error(j.erro||"erro"),{code:j.erro});return j;
+}
+async function carregarEstado(){
+  try{
+    const j=DEMO?demo("estado"):await (await fetch(C.apiUrl+"?acao=estado&t="+Date.now())).json();
+    S.reservas={};(j.reservas||[]).forEach(r=>S.reservas[r.id]=r);
+    S.recados=j.recados||[];S.carregado=true;render();renderMural();
+  }catch(e){$("prog-txt").textContent="Não foi possível carregar a lista agora. Atualize a página em instantes."}
+}
+function demo(acao,d={}){
+  const st=ls("cha_demo")||{reservas:{},recados:[],rsvp:{}},save=()=>ls("cha_demo",st);
+  if(acao==="estado")return{ok:true,reservas:Object.entries(st.reservas).map(([id,r])=>({id,nome:r.nome})),recados:st.recados};
+  if(acao==="reservar"){if(st.reservas[d.itemId])throw Object.assign(new Error(),{code:"reservado"});st.reservas[d.itemId]={nome:d.nome,token:d.token};save();return{ok:true}}
+  if(acao==="cancelar"){delete st.reservas[d.itemId];save();return{ok:true}}
+  if(acao==="rsvp"){st.rsvp[d.token]=d;save();return{ok:true}}
+  if(acao==="recado"){st.recados.unshift({nome:d.nome,texto:d.texto,em:new Date().toISOString()});save();return{ok:true}}
+}
+
+/* ================= presentes ================= */
+function render(){
+  const lista=ITENS.filter(i=>i.cat===S.aba),res=lista.filter(i=>S.reservas[i.id]).length;
+  if(S.carregado){$("prog-txt").textContent=res+" de "+lista.length+" presentes já reservados";$("prog-bar").style.width=(res/lista.length*100)+"%"}
+  $("medidas").hidden=S.aba!=="lingerie";
+  document.querySelectorAll(".aba").forEach(b=>b.setAttribute("aria-selected",b.dataset.aba===S.aba));
+  document.querySelectorAll(".chip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===S.filtro));
+  const vis=lista.filter(i=>S.filtro==="todos"||(S.filtro==="livres")===!S.reservas[i.id]);
+  $("grade").replaceChildren(...(vis.length?vis.map(card):[el("p",{class:"vazio",text:S.filtro==="livres"?"Todos os presentes desta lista já foram reservados.":"Nenhum presente reservado ainda."})]));
+}
+function card(i){
+  const r=S.reservas[i.id],meu=r&&(ls("cha_meus")||[]).includes(i.id);
+  const c=el("article",{class:"item"+(r?" res":"")},el("span",{class:"tag",text:i.cat}),
+    el("h3",{text:i.nome}),el("span",{class:"preco",text:i.preco}),i.nota?el("p",{class:"obs",text:i.nota}):null,
+    r?el("span",{class:"reservado",html:DES.coracao},document.createTextNode("reservado por "+r.nome)):null);
+  if(S.abrindo===i.id&&!r){
+    const inp=el("input",{type:"text",id:"nome-"+i.id,maxlength:"60",placeholder:"seu nome",autocomplete:"name","aria-label":"Seu nome"});
+    inp.value=ls("cha_nome")||"";
+    c.append(el("form",{onsubmit:e=>{e.preventDefault();reservar(i,inp.value)}},inp,
+      el("div",{class:"acoes"},el("button",{class:"btn min",type:"submit",text:"confirmar"}),el("button",{class:"btn contorno min",type:"button",text:"voltar",onclick:()=>{S.abrindo=null;render()}}))));
+    setTimeout(()=>inp.focus({preventScroll:true}),0);return c;
+  }
+  const a=el("div",{class:"acoes"});
+  if(S.carregado&&!r)a.append(el("button",{class:"btn min",type:"button",text:"vou dar este",onclick:()=>{S.abrindo=i.id;render()}}));
+  if(meu)a.append(el("button",{class:"btn contorno min",type:"button",text:"cancelar reserva",onclick:()=>cancelar(i)}));
+  a.append(el("a",{class:"btn contorno min",href:"https://shopee.com.br/search?keyword="+encodeURIComponent(i.nome),target:"_blank",rel:"noopener",text:"ver na shopee"}));
+  c.append(a);return c;
+}
+async function reservar(i,nome){
+  nome=nome.trim();if(!nome)return toast("Escreva seu nome para reservar.");
+  if(S.ocupado)return;S.ocupado=true;ls("cha_nome",nome);
+  try{await api("reservar",{itemId:i.id,presente:i.nome,nome,token:token()});ls("cha_meus",[...(ls("cha_meus")||[]),i.id]);S.abrindo=null;toast("“"+i.nome+"” está reservado para você.")}
+  catch(e){toast(e.code==="reservado"?"Alguém acabou de reservar este item. Escolha outro.":"Não foi possível reservar agora. Tente de novo.")}
+  finally{S.ocupado=false;await carregarEstado()}
+}
+async function cancelar(i){
+  if(S.ocupado)return;S.ocupado=true;
+  try{await api("cancelar",{itemId:i.id,token:token()});ls("cha_meus",(ls("cha_meus")||[]).filter(x=>x!==i.id));toast("Reserva cancelada. O item voltou para a lista.")}
+  catch(e){toast("Não foi possível cancelar. Fale com a noiva.")}
+  finally{S.ocupado=false;await carregarEstado()}
+}
+
+/* ================= presença ================= */
+function mostrarOk(d){
+  $("form-rsvp").hidden=true;$("rsvp-ok").hidden=false;
+  const p=d.nome.split(" ")[0];
+  $("ok-titulo").textContent=d.vai==="sim"?"te espero, "+p:"obrigada, "+p;
+  $("ok-txt").textContent=d.vai==="sim"
+    ?(d.lembrete&&d.whatsapp?"Presença confirmada. Na véspera você recebe um lembrete no WhatsApp.":"Presença confirmada. Salve o chá na sua agenda.")
+    :"Que pena. Você ainda pode escolher um presente e deixar um recado para a noiva.";
+  $("agenda").hidden=d.vai!=="sim";
+}
+$("form-rsvp").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const d={nome:$("r-nome").value.trim(),whatsapp:$("r-whats").value.replace(/\D/g,""),vai:$("r-sim").checked?"sim":"nao",obs:$("r-obs").value.trim(),lembrete:$("r-lembrete").checked,token:token()};
+  if(!d.nome)return toast("Escreva seu nome.");
+  if(d.whatsapp&&(d.whatsapp.length<10||d.whatsapp.length>13))return toast("Confira o WhatsApp: DDD + número.");
+  const b=$("r-enviar");b.disabled=true;
+  try{await api("rsvp",d);ls("cha_rsvp",d);ls("cha_nome",d.nome);if(!$("m-nome").value)$("m-nome").value=d.nome;mostrarOk(d)}
+  catch(err){toast("Não foi possível enviar agora. Tente de novo.")}
+  finally{b.disabled=false}
+});
+$("ok-editar").addEventListener("click",()=>{$("form-rsvp").hidden=false;$("rsvp-ok").hidden=true});
+
+/* ================= recados ================= */
+function renderMural(){
+  $("mural").replaceChildren(...(S.recados.length?S.recados.map(r=>el("figure",{class:"recado"},el("p",{text:r.texto}),el("footer",{text:r.nome})))
+    :[el("p",{class:"mural-vazio",text:"Seja a primeira a deixar um recado."})]));
+}
+$("form-recado").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const nome=$("m-nome").value.trim(),texto=$("m-texto").value.trim();
+  if(!nome||!texto)return toast("Escreva seu nome e a mensagem.");
+  const b=$("m-enviar");b.disabled=true;
+  try{await api("recado",{nome,texto,token:token()});$("m-texto").value="";ls("cha_nome",nome);toast("Recado publicado. A noiva vai amar.");await carregarEstado()}
+  catch(err){toast(err.code==="limite"?"Você já deixou alguns recados. Obrigada pelo carinho!":"Não foi possível publicar agora. Tente de novo.")}
+  finally{b.disabled=false}
+});
+
+/* ================= início ================= */
+document.querySelectorAll(".aba").forEach(b=>b.addEventListener("click",()=>{S.aba=b.dataset.aba;S.abrindo=null;render()}));
+document.querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>{S.filtro=b.dataset.f;render()}));
+preencher();contagem();setInterval(contagem,30000);render();renderMural();carregarEstado();
+setInterval(()=>{if(!S.abrindo&&!document.hidden)carregarEstado()},45000);
+const salvo=ls("cha_rsvp");if(salvo){$("r-nome").value=salvo.nome;$("r-whats").value=salvo.whatsapp||"";(salvo.vai==="sim"?$("r-sim"):$("r-nao")).checked=true;$("r-obs").value=salvo.obs||"";mostrarOk(salvo)}
+const nm=ls("cha_nome");if(nm){if(!$("r-nome").value)$("r-nome").value=nm;$("m-nome").value=nm}
+if("IntersectionObserver" in window&&!matchMedia("(prefers-reduced-motion:reduce)").matches){
+  const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.remove("antes");io.unobserve(x.target)}}),{rootMargin:"0px 0px -60px 0px"});
+  document.querySelectorAll(".revela").forEach(f=>{if(f.getBoundingClientRect().top>innerHeight){f.classList.add("antes");io.observe(f)}});
+}
+</script>
+</body>
+</html>
