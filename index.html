@@ -57,9 +57,10 @@ h2{font-size:clamp(2.7rem,6vw,4.4rem);color:var(--vermelho)}
 .foto .laco{position:absolute;z-index:3;left:var(--lx,50%);top:-26px;width:var(--lw,50px);transform:translateX(-50%) rotate(var(--lr,0deg));color:var(--vermelho)}
 
 /* ====== capa: foto em tela cheia, texto por cima do lado das flores ====== */
-.capa{position:relative;min-height:min(92vh,880px);display:flex;align-items:center;justify-content:flex-end;color:var(--branco);background:var(--vinho) var(--capa-l,none) 28% 30%/cover no-repeat;overflow:hidden}
-.capa::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(62,13,22,0) 28%,rgba(62,13,22,.45) 50%,rgba(62,13,22,.82) 78%),linear-gradient(0deg,rgba(62,13,22,.35),rgba(62,13,22,0) 30%)}
-.capa .in{position:relative;width:min(560px,100%);margin-right:clamp(22px,6vw,7rem);padding-block:5rem}
+.capa{position:relative;min-height:min(92vh,880px);display:flex;align-items:center;justify-content:flex-end;color:var(--branco);background:var(--vinho-dk);overflow:hidden}
+.capa-img{position:absolute;left:0;top:0;bottom:0;width:auto;height:100%;aspect-ratio:1600/1272;max-width:78%;background:var(--capa-l,none) left 30%/cover no-repeat;-webkit-mask-image:linear-gradient(90deg,#000 62%,transparent 98%);mask-image:linear-gradient(90deg,#000 62%,transparent 98%)}
+.capa::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at 85% 50%,rgba(176,30,43,.35),transparent 60%),linear-gradient(0deg,rgba(62,13,22,.35),rgba(62,13,22,0) 30%)}
+.capa .in{position:relative;z-index:2;width:min(540px,100%);margin-right:clamp(22px,6vw,7rem);padding-block:5rem}
 .capa .marca{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.6rem;font-family:var(--f-script);font-size:1.9rem;line-height:1}
 .capa .marca .laco-ico{width:40px;color:var(--branco)}
 .capa .rotulo{color:var(--blush)}
@@ -71,7 +72,8 @@ h2{font-size:clamp(2.7rem,6vw,4.4rem);color:var(--vermelho)}
 .contagem b{display:block;font-family:var(--f-disp);font-weight:500;font-size:2.1rem;line-height:1;font-variant-numeric:lining-nums tabular-nums}
 .contagem span{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;opacity:.85}
 @media (max-width:860px){
-  .capa{min-height:min(100svh,900px);align-items:flex-end;justify-content:center;background-image:var(--capa-m,var(--capa-l,none));background-position:center 0%;background-size:100% auto;background-color:var(--vinho-dk)}
+  .capa-img{display:none}
+  .capa{min-height:min(100svh,900px);align-items:flex-end;justify-content:center;background-repeat:no-repeat;background-image:var(--capa-m,var(--capa-l,none));background-position:center 0%;background-size:100% auto;background-color:var(--vinho-dk)}
   .capa::before{background:linear-gradient(180deg,rgba(62,13,22,0) 34%,rgba(62,13,22,.62) 50%,rgba(62,13,22,.96) 62%,#3e0d16 68%)}
   .capa .in{margin:0;padding:0 22px 2rem;text-align:center}
   .capa .marca{display:none}
@@ -280,6 +282,19 @@ textarea{min-height:110px;resize:vertical;border:1px solid var(--linha);padding:
 .recado footer{margin-top:.7rem;font-weight:500;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--vermelho)}
 .mural-vazio{opacity:.85;font-style:italic;column-span:all}
 
+/* contagem para o casamento */
+.sim{background:var(--vermelho);color:var(--branco);text-align:center;padding-block:5.5rem;overflow:hidden}
+.sim .laco-ico{display:block;width:58px;margin:0 auto 1.2rem;color:var(--branco)}
+.sim .rotulo{color:var(--blush)}
+.sim h2{color:var(--branco)}
+.sim-num{display:flex;justify-content:center;gap:clamp(.6rem,3vw,2rem);margin-top:2.6rem;flex-wrap:wrap}
+.sim-num div{min-width:clamp(72px,16vw,150px);padding:1.2rem .6rem 1rem;border:1px solid rgba(255,250,248,.45);border-radius:18px;background:rgba(255,250,248,.06)}
+.sim-num b{display:block;font-family:var(--f-disp);font-weight:500;font-size:clamp(2.4rem,7vw,4.6rem);line-height:1;font-variant-numeric:lining-nums tabular-nums}
+.sim-num span{display:block;margin-top:.5rem;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--blush)}
+.sim-txt{font-size:clamp(2.2rem,5vw,3.2rem);margin-top:2.4rem;color:var(--blush)}
+.sim-quando{margin-top:.8rem;font-weight:500;font-size:.74rem;letter-spacing:.3em;text-transform:uppercase}
+@media (max-width:520px){.sim-num{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem}.sim-num div{min-width:0;padding:.9rem .2rem .7rem;border-radius:12px}.sim-num span{letter-spacing:.12em;font-size:.55rem}}
+
 /* rodapé */
 .rodape{background:var(--creme);text-align:center;padding-block:4.5rem calc(4.5rem + env(safe-area-inset-bottom))}
 .rodape .laco-ico{width:56px;margin:0 auto;color:var(--vermelho)}
@@ -297,7 +312,8 @@ textarea{min-height:110px;resize:vertical;border:1px solid var(--linha);padding:
 </head>
 <body>
 
-<header class="capa" id="inicio" role="img" aria-label="Foto da noiva">
+<header class="capa" id="inicio">
+  <div class="capa-img" role="img" aria-label="Foto da noiva"></div>
   <div class="in">
     <div class="marca"><span class="laco-ico" data-svg="laco"></span><span id="marca-casal">Dani &amp; Léo</span></div>
     <span class="rotulo">chá de cozinha &amp; lingerie</span>
@@ -488,6 +504,22 @@ textarea{min-height:110px;resize:vertical;border:1px solid var(--linha);padding:
   </div>
 </section>
 
+<section class="sim" id="casamento">
+  <div class="wrap">
+    <span class="laco-ico" data-svg="laco"></span>
+    <span class="rotulo" id="sim-rot">e depois do chá…</span>
+    <h2>contagem para o sim.</h2>
+    <div class="sim-num" aria-live="off">
+      <div><b id="cs-d">0</b><span>dias</span></div>
+      <div><b id="cs-h">0</b><span>horas</span></div>
+      <div><b id="cs-m">0</b><span>minutos</span></div>
+      <div><b id="cs-s">0</b><span>segundos</span></div>
+    </div>
+    <div class="script sim-txt" id="sim-txt"></div>
+    <div class="sim-quando" id="sim-quando"></div>
+  </div>
+</section>
+
 <footer class="rodape">
   <span class="laco-ico" data-svg="laco" style="display:block"></span>
   <div class="xo" id="rod-xo">xoxo, Dani</div>
@@ -555,7 +587,7 @@ function preencher(){
   document.querySelectorAll("[data-svg]").forEach(n=>{n.innerHTML=DES[n.dataset.svg]||""});
   const noiva=C.apelidoNoiva,casal=C.apelidoNoiva+" & "+C.apelidoNoivo;
   document.title="A "+noiva+" vai casar";
-  [["--capa-l",C.fotos.capaHero||C.fotos.local],["--capa-m",C.fotos.capaHeroCelular]].forEach(([v,src])=>{if(!src)return;const im=new Image();im.onload=()=>$("inicio").style.setProperty(v,"url('"+src+"')");im.src=src});
+  [["--capa-l",C.fotos.capaHero||C.fotos.local],["--capa-m",C.fotos.capaHeroCelular]].forEach(([v,src])=>{if(!src)return;const im=new Image();im.onload=()=>document.documentElement.style.setProperty(v,"url('"+src+"')");im.src=src});
   $("marca-casal").textContent=casal;
   $("titulo-capa").textContent="a "+noiva.toLowerCase()+" vai casar.";
   $("capa-data").textContent=dd2+" · "+mm2+" · "+aa+"  ·  "+C.cidade;
@@ -598,6 +630,8 @@ function preencher(){
   $("rod-xo").textContent="xoxo, "+noiva;
   $("rod-casamento").textContent=casal+" · casamento "+C.casamento;
 }
+const casamento=C.casamentoISO?new Date(C.casamentoISO):null;
+function contaSim(){if(!casamento)return;const s=Math.max(0,(casamento-Date.now())/1000);$("cs-d").textContent=Math.floor(s/86400);$("cs-h").textContent=String(Math.floor(s%86400/3600)).padStart(2,"0");$("cs-m").textContent=String(Math.floor(s%3600/60)).padStart(2,"0");$("cs-s").textContent=String(Math.floor(s%60)).padStart(2,"0")}
 function contagem(){const s=Math.max(0,(inicio-Date.now())/1000);$("cd-d").textContent=Math.floor(s/86400);$("cd-h").textContent=Math.floor(s%86400/3600);$("cd-m").textContent=Math.floor(s%3600/60)}
 
 /* ================= API (Google Apps Script) ================= */
@@ -704,7 +738,9 @@ $("form-recado").addEventListener("submit",async e=>{
 /* ================= início ================= */
 document.querySelectorAll(".aba").forEach(b=>b.addEventListener("click",()=>{S.aba=b.dataset.aba;S.abrindo=null;render()}));
 document.querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>{S.filtro=b.dataset.f;render()}));
-preencher();contagem();setInterval(contagem,30000);render();renderMural();carregarEstado();
+preencher();contagem();setInterval(contagem,30000);
+if(casamento){const ds=casamento.toLocaleDateString("pt-BR",{weekday:"long",day:"numeric",month:"long",year:"numeric",timeZone:"America/Sao_Paulo"}),hs=casamento.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit",timeZone:"America/Sao_Paulo"}).replace(":","h");
+  $("sim-txt").textContent="para "+C.apelidoNoiva+" & "+C.apelidoNoivo+" dizerem sim";$("sim-quando").textContent=ds+" · "+hs+(C.casamentoLocal?" · "+C.casamentoLocal:"");contaSim();setInterval(contaSim,1000)}else{$("casamento").hidden=true}render();renderMural();carregarEstado();
 setInterval(()=>{if(!S.abrindo&&!document.hidden)carregarEstado()},45000);
 const salvo=ls("cha_rsvp");if(salvo){$("r-nome").value=salvo.nome;$("r-whats").value=salvo.whatsapp||"";(salvo.vai==="sim"?$("r-sim"):$("r-nao")).checked=true;$("r-obs").value=salvo.obs||"";mostrarOk(salvo)}
 const nm=ls("cha_nome");if(nm){if(!$("r-nome").value)$("r-nome").value=nm;$("m-nome").value=nm}

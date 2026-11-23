@@ -14,6 +14,8 @@ window.CONFIG = {
 
   // Casamento (aparece no rodapé)
   casamento: "20 · 03 · 2027 · Villa Castanieri",
+  casamentoISO: "2027-03-20T15:30:00-03:00", // data e hora do casamento (contagem no final do site)
+  casamentoLocal: "Villa Castanieri · Mogi das Cruzes",
 
   // Faixa que passa rolando no topo
   faixa: ["A Dani vai casar!", "Chá de Cozinha & Lingerie", "The Bride Club", "Madrinhas de vermelho", "Convidadas de rosa"],
