@@ -233,6 +233,16 @@ nav.menu ul a:hover{color:var(--vermelho)}
 .item form{display:flex;flex-direction:column;gap:.55rem;margin-top:auto;padding-top:.8rem}
 .vazio{grid-column:1/-1;text-align:center;color:var(--muted);padding:2rem 0}
 
+/* avisos da lista */
+.avisos{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:0 0 2.4rem}
+@media (max-width:760px){.avisos{grid-template-columns:1fr}}
+.aviso{display:grid;grid-template-columns:38px 1fr;gap:.9rem;align-items:start;background:var(--blush);border:1px solid var(--vermelho);border-radius:16px;padding:1.1rem 1.2rem;font-size:.98rem;line-height:1.55}
+.aviso .n{width:34px;height:34px;border-radius:50%;background:var(--vermelho);color:var(--branco);display:grid;place-items:center;font-family:var(--f-disp);font-weight:500;font-size:1.05rem}
+.aviso b{font-weight:500;color:var(--vermelho)}
+.faixa-lista{display:flex;align-items:center;gap:.7rem;margin-bottom:1.4rem;padding:.8rem 1.1rem;border-radius:12px;background:var(--creme);font-size:.95rem}
+.faixa-lista svg{width:22px;flex:none;color:var(--vermelho)}
+.faixa-lista b{font-weight:500;color:var(--vermelho)}
+
 /* local */
 .local .mapa{position:relative;min-height:420px;background:var(--blush)}
 .local .mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:saturate(.7) sepia(.15) hue-rotate(-12deg)}
@@ -379,10 +389,9 @@ textarea{min-height:110px;resize:vertical;border:1px solid var(--linha);padding:
         <span class="rotulo">um pouquinho de mim</span>
         <h2>a noiva.</h2>
         <p id="texto-noiva"></p>
-        <a class="btn contorno" href="#galeria">ver as fotos</a>
+        <a class="btn contorno" href="#nos">ver nós dois</a>
       </div>
     </div>
-    <div class="galeria" id="galeria"></div>
   </div>
 </section>
 
@@ -409,7 +418,6 @@ textarea{min-height:110px;resize:vertical;border:1px solid var(--linha);padding:
         <ul class="prog" id="prog"></ul>
       </div>
     </div>
-    <div class="trio revela" id="trio"></div>
   </div>
 </section>
 
@@ -419,10 +427,14 @@ textarea{min-height:110px;resize:vertical;border:1px solid var(--linha);padding:
       <div><span class="rotulo">lista de presentes</span><h2>mimos para a noiva.</h2></div>
       <p id="nota-txt"></p>
     </div>
+    <div class="avisos" role="note">
+      <div class="aviso"><span class="n">1</span><div><b>Convidadas: lista de cozinha.</b> A lista de <b>lingerie é só para as madrinhas</b>.</div></div>
+      <div class="aviso"><span class="n">2</span><div><b>O importante é reservar.</b> Os links são só referência: você pode comprar onde preferir, de qualquer marca ou loja.</div></div>
+    </div>
     <div class="controles">
       <div class="abas-wrap"><div class="abas" role="tablist" aria-label="Listas">
-        <button class="aba" role="tab" id="aba-cozinha" data-aba="cozinha" aria-selected="true">cozinha</button>
-        <button class="aba" role="tab" id="aba-lingerie" data-aba="lingerie" aria-selected="false">lingerie</button>
+        <button class="aba" role="tab" id="aba-cozinha" data-aba="cozinha" aria-selected="true">cozinha · convidadas</button>
+        <button class="aba" role="tab" id="aba-lingerie" data-aba="lingerie" aria-selected="false">lingerie · madrinhas</button>
       </div><span class="rabisco psiu" id="psiu"></span></div>
       <div class="filtros" role="group" aria-label="Filtrar presentes">
         <button class="chip" id="f-todos" data-f="todos" aria-pressed="true">todos</button>
@@ -431,6 +443,7 @@ textarea{min-height:110px;resize:vertical;border:1px solid var(--linha);padding:
       </div>
     </div>
     <div class="progresso"><span id="prog-txt">carregando a lista…</span><div class="trilho"><i id="prog-bar"></i></div></div>
+    <div class="faixa-lista" id="faixa-lista"></div>
     <div class="medidas" id="medidas" hidden></div>
     <div class="grade" id="grade" aria-live="polite"></div>
   </div>
@@ -595,19 +608,17 @@ function preencher(){
   $("carta-txt").replaceChildren(...C.carta.map(t=>el("p",{text:t})));
   $("xoxo").textContent="xoxo, "+noiva;
   $("oi-fotos").replaceChildren(foto(C.fotos.carta[0],"",true));
-  const info=[["quando",semana+", "+dd+" de "+mm+", a partir das "+hora],["onde",C.local+" · "+C.cidade],["dress code","madrinhas de vermelho, convidadas de rosa. "+((C.dressCode&&C.dressCode.obs)||"")],["presentes","lista de cozinha e de lingerie aqui no site. Reserve o seu para ninguém repetir."],["confirme até",C.confirmarAte||""]];
+  const info=[["quando",semana+", "+dd+" de "+mm+", a partir das "+hora],["onde",C.local+" · "+C.cidade],["dress code","madrinhas de vermelho, convidadas de rosa. "+((C.dressCode&&C.dressCode.obs)||"")],["presentes","convidadas: itens de cozinha. Madrinhas: lingerie. Reserve o seu aqui no site para ninguém repetir."],["confirme até",C.confirmarAte||""]];
   $("info").replaceChildren(...info.map(([k,v])=>el("li",{},el("span",{html:LACO_P}),el("div",{},el("b",{text:k}),document.createTextNode(v)))));
   const det=[["calendario","quando",semana+", "+dd+" de "+mm+", a partir das "+hora+"."],["pin","onde",C.local+", "+C.endereco+"."],...C.detalhes.filter(d=>d[0]!=="laco").map(d=>[d[0],d[1],d[2]]),["laco","confirme até",(C.confirmarAte||"")+". É rapidinho, lá embaixo."]];
   $("icones").replaceChildren(...det.map(([k,t,d],i)=>el("div",{class:"icone revela"+(i<2?" destaque":""),html:ICO[k]||ICO.presente},el("h3",{text:t}),el("p",{text:d}))));
   $("pilha").replaceChildren(...(C.fotos.noiva.slice(0,2)).map((p,i)=>foto(p,"",i===0)));
   $("texto-noiva").textContent=C.textoNoiva;
-  $("galeria").replaceChildren(...C.fotos.noiva.slice(2).concat(C.fotos.carta.slice(1)).map((p,i)=>foto(p,"revela",i===2)));
   $("nos-rotulo").textContent=casal;$("texto-casal").textContent=C.textoCasal;
   const cf=[C.fotos.casalGrande,...C.fotos.casal].slice(0,4);
   $("cards").replaceChildren(...cf.map(p=>{const [s,l]=Array.isArray(p)?p:[p,""];return el("div",{class:"card-foto revela"},img(s,l||"Foto do casal"),l?el("span",{text:l}):null)}));
   bgFoto($("alta"),(C.fotos.filme&&C.fotos.filme.find(f=>/aquarela/.test(f)))||C.fotos.local);
   $("prog").replaceChildren(...C.programacao.map(([h,t])=>el("li",{},el("b",{text:h}),el("span",{text:t}))));
-  $("trio").replaceChildren(...C.fotos.programacao.map((p,i)=>foto(p,"",i===1)));
   $("nota-txt").textContent=C.notaPresentes;
   $("medidas").replaceChildren(el("span",{class:"t",text:"meus tamanhos"}),...Object.entries(C.medidas).map(([k,v])=>el("span",{},k+": ",el("b",{text:v}))));
   $("l-local").textContent=C.local;$("l-end").textContent=C.endereco;
@@ -658,6 +669,7 @@ function render(){
   const lista=ITENS.filter(i=>i.cat===S.aba),res=lista.filter(i=>S.reservas[i.id]).length;
   if(S.carregado){$("prog-txt").textContent=res+" de "+lista.length+" presentes já reservados";$("prog-bar").style.width=(res/lista.length*100)+"%"}
   $("medidas").hidden=S.aba!=="lingerie";
+  $("faixa-lista").innerHTML=LACO_P+(S.aba==="lingerie"?"<span><b>Lista só para as madrinhas.</b> Convidadas, a lista de vocês é a de cozinha.</span>":"<span><b>Lista para todas as convidadas.</b> Reserve com seu nome e compre onde preferir.</span>");
   document.querySelectorAll(".aba").forEach(b=>b.setAttribute("aria-selected",b.dataset.aba===S.aba));
   document.querySelectorAll(".chip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===S.filtro));
   const vis=lista.filter(i=>S.filtro==="todos"||(S.filtro==="livres")===!S.reservas[i.id]);
@@ -665,7 +677,7 @@ function render(){
 }
 function card(i){
   const r=S.reservas[i.id],meu=r&&(ls("cha_meus")||[]).includes(i.id);
-  const c=el("article",{class:"item"+(r?" res":"")},el("span",{class:"tag",text:i.cat}),
+  const c=el("article",{class:"item"+(r?" res":"")},el("span",{class:"tag",text:i.cat==="lingerie"?"lingerie · só madrinhas":"cozinha · convidadas"}),
     el("h3",{text:i.nome}),el("span",{class:"preco",text:i.preco}),i.nota?el("p",{class:"obs",text:i.nota}):null,
     r?el("span",{class:"reservado",html:DES.coracao},document.createTextNode("reservado por "+r.nome)):null);
   if(S.abrindo===i.id&&!r){
@@ -678,7 +690,7 @@ function card(i){
   const a=el("div",{class:"acoes"});
   if(S.carregado&&!r)a.append(el("button",{class:"btn min",type:"button",text:"vou dar este",onclick:()=>{S.abrindo=i.id;render()}}));
   if(meu)a.append(el("button",{class:"btn contorno min",type:"button",text:"cancelar reserva",onclick:()=>cancelar(i)}));
-  a.append(el("a",{class:"btn contorno min",href:"https://shopee.com.br/search?keyword="+encodeURIComponent(i.nome),target:"_blank",rel:"noopener",text:"ver na shopee"}));
+  a.append(el("a",{class:"btn contorno min",href:"https://shopee.com.br/search?keyword="+encodeURIComponent(i.nome),target:"_blank",rel:"noopener",text:"ver referência ↗"}));
   c.append(a);return c;
 }
 async function reservar(i,nome){

@@ -40,9 +40,9 @@ window.CONFIG = {
   detalhes: [
     ["laco", "O chá", "Recepção a partir das 14h. Chegue um pouquinho antes para aproveitarmos cada momento juntas."],
     ["vestido", "O que vestir", "Madrinhas de vermelho, convidadas de rosa. Pode abusar dos laços!"],
-    ["presente", "Chá de cozinha", "Itens para a nossa casa nova. Reserve o seu na lista para ninguém repetir."],
-    ["lingerie", "Chá de lingerie", "Um mimo para a lua de mel. Meus tamanhos estão na lista de presentes."],
-    ["carro", "Estacionamento", "Informe aqui se o local tem estacionamento ou vagas na rua."],
+    ["presente", "Chá de cozinha", "Para todas as convidadas: itens para a nossa casa nova. Reserve o seu na lista para ninguém repetir."],
+    ["lingerie", "Chá de lingerie", "Só para as madrinhas: um mimo para a lua de mel. Meus tamanhos estão na lista."],
+    ["carro", "Estacionamento", "Há vagas na rua, ao redor do local."],
     ["tacas", "Brincadeiras", "Teremos brincadeiras, brindes e muitas risadas. Venha preparada!"]
   ],
 
@@ -54,7 +54,7 @@ window.CONFIG = {
     ["17:30", "Brinde final"]
   ],
 
-  notaPresentes: "Sua presença é o meu presente mais especial. Mas, se quiser me mimar, montei duas listinhas: uma para a cozinha da nossa casa nova e outra de lingerie para a lua de mel. Escolha um item, reserve com seu nome e compre na Shopee ou onde preferir.",
+  notaPresentes: "Sua presença é o meu presente mais especial. Mas, se quiser me mimar, montei duas listinhas: uma de cozinha, para a nossa casa nova, e outra de lingerie, para a lua de mel.",
 
   // Apelidos (aparecem na seção "Nós dois" e no carimbo)
   apelidoNoiva: "Dani",
