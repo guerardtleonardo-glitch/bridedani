@@ -97,7 +97,7 @@ window.CONFIG = {
   textoCasal: "Do primeiro encontro até o pedido debaixo da árvore. Agora falta pouquinho para o sim!",
   fotosPretoEBranco: true, // fotos reais em preto e branco, como no modelo (aquarelas ficam coloridas)
 
-  medidas: { "Sutiã": "a definir", "Calcinha": "a definir", "Camisola / pijama": "a definir", "Pantufa": "a definir" },
+  medidas: { "Sutiã": "44 ou 45", "Calcinha": "P", "Camisola / pijama": "P" },
 
   whatsappContato: "", // só números com DDD, ex.: "11999998888"
 
@@ -139,7 +139,6 @@ window.CONFIG = {
     ["l07","lingerie","Meia 7/8 com cinta-liga","R$ 40–90",""],
     ["l08","lingerie","Kit de calcinhas","R$ 40–90","Algodão ou microfibra."],
     ["l09","lingerie","Conjunto branco para a lua de mel","R$ 80–180",""],
-    ["l10","lingerie","Pantufa","R$ 40–80",""],
     ["l11","lingerie","Kit spa / óleo de massagem","R$ 50–120",""],
     ["l12","lingerie","Necessaire de viagem","R$ 40–90","Para a lua de mel."]
   ]
