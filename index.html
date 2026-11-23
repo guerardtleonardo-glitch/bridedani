@@ -177,7 +177,7 @@ nav.menu ul a:hover{color:var(--vermelho)}
 .card-foto:nth-child(1){--r:-1.5deg}.card-foto:nth-child(2){--r:1.5deg;margin-top:1.6rem}.card-foto:nth-child(3){--r:1deg}.card-foto:nth-child(4){--r:-1.2deg;margin-top:1.6rem}
 .card-foto img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px;background:var(--branco)}
 .card-foto span{display:block;font-family:var(--f-script);font-size:1.4rem;color:var(--vermelho);line-height:1.1;padding:.4rem 0 .2rem}
-.nos .alta{background:var(--blush) center/cover no-repeat;min-height:100%}
+.nos .alta{background:var(--blush) 50% 30%/cover no-repeat;min-height:100%}
 
 /* tira em script */
 .tira-script{background:var(--vermelho);color:var(--branco);text-align:center;padding:.8rem 22px}
@@ -617,7 +617,7 @@ function preencher(){
   $("nos-rotulo").textContent=casal;$("texto-casal").textContent=C.textoCasal;
   const cf=[C.fotos.casalGrande,...C.fotos.casal].slice(0,4);
   $("cards").replaceChildren(...cf.map(p=>{const [s,l]=Array.isArray(p)?p:[p,""];return el("div",{class:"card-foto revela"},img(s,l||"Foto do casal"),l?el("span",{text:l}):null)}));
-  bgFoto($("alta"),(C.fotos.filme&&C.fotos.filme.find(f=>/aquarela/.test(f)))||C.fotos.local);
+  bgFoto($("alta"),C.fotos.casalLateral||C.fotos.local);
   $("prog").replaceChildren(...C.programacao.map(([h,t])=>el("li",{},el("b",{text:h}),el("span",{text:t}))));
   $("nota-txt").textContent=C.notaPresentes;
   $("medidas").replaceChildren(el("span",{class:"t",text:"meus tamanhos"}),...Object.entries(C.medidas).map(([k,v])=>el("span",{},k+": ",el("b",{text:v}))));

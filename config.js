@@ -76,6 +76,7 @@ window.CONFIG = {
       ["fotos/noiva5.jpg", "com as amigas"],
       ["fotos/noiva6.jpg", "quase noiva"]
     ],
+    casalLateral: "fotos/casal-lateral.jpg", // foto grande ao lado de "nós dois"
     casalGrande: ["fotos/casal1.jpg", "o dia do pedido!"],
     casal: [["fotos/casal2.jpg", "o começo de tudo"], ["fotos/casal3.jpg", "nossa primeira viagem"], ["fotos/casal4.jpg", "dupla imbatível"]],
     filme: ["fotos/casal5.jpg", "fotos/casal6.jpg", "fotos/casal7.jpg", "fotos/casal8.jpg", "fotos/casal9.jpg", "fotos/casal10.jpg", "fotos/casal-aquarela.jpg"],
