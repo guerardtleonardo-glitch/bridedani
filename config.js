@@ -103,7 +103,7 @@ window.CONFIG = {
   whatsappContato: "", // só números com DDD, ex.: "11999998888"
 
   // Endereço do app da Web do Google Apps Script (LEIA-ME, passo 2). Vazio = modo demonstração.
-  apiUrl: "",
+  apiUrl: "https://script.google.com/macros/s/AKfycbw7wvfJCNbIUeQWw3ZkYM3oLAAct5c6ZdO-AK1gi-Wd0hp--Tqy4mA3-8JQfDYPXRx3uw/exec",
 
   // Lista de presentes: [código, lista, nome, faixa de preço, observação]
   itens: [
