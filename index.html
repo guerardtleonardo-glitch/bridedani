@@ -544,7 +544,7 @@ textarea{min-height:110px;resize:vertical;border:1px solid var(--linha);padding:
 <script>
 document.documentElement.classList.add("js");
 const C=window.CONFIG,$=id=>document.getElementById(id);
-const ITENS=C.itens.map(([id,cat,nome,preco,nota])=>({id,cat,nome,preco,nota}));
+const ITENS=C.itens.map(([id,cat,nome,preco,nota,link])=>({id,cat,nome,preco,nota,link}));
 const S={aba:"cozinha",filtro:"todos",reservas:{},recados:[],carregado:false,abrindo:null,ocupado:false};
 const DEMO=!C.apiUrl,PLACE="fotos/placeholder.svg";
 
@@ -690,7 +690,7 @@ function card(i){
   const a=el("div",{class:"acoes"});
   if(S.carregado&&!r)a.append(el("button",{class:"btn min",type:"button",text:"vou dar este",onclick:()=>{S.abrindo=i.id;render()}}));
   if(meu)a.append(el("button",{class:"btn contorno min",type:"button",text:"cancelar reserva",onclick:()=>cancelar(i)}));
-  a.append(el("a",{class:"btn contorno min",href:"https://shopee.com.br/search?keyword="+encodeURIComponent(i.nome),target:"_blank",rel:"noopener",text:"ver referência ↗"}));
+  a.append(el("a",{class:"btn contorno min",href:i.link||("https://shopee.com.br/search?keyword="+encodeURIComponent(i.nome)),target:"_blank",rel:"noopener",text:"ver referência ↗"}));
   c.append(a);return c;
 }
 async function reservar(i,nome){

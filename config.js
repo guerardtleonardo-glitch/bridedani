@@ -105,7 +105,7 @@ window.CONFIG = {
   // Endereço do app da Web do Google Apps Script (LEIA-ME, passo 2). Vazio = modo demonstração.
   apiUrl: "https://script.google.com/macros/s/AKfycbw7wvfJCNbIUeQWw3ZkYM3oLAAct5c6ZdO-AK1gi-Wd0hp--Tqy4mA3-8JQfDYPXRx3uw/exec",
 
-  // Lista de presentes: [código, lista, nome, faixa de preço, observação]
+  // Lista de presentes: [código, lista, nome, preço, observação, link de referência (opcional)]
   itens: [
     ["c01","cozinha","Jogo de panelas antiaderente","R$ 200–400","5 peças, de preferência para fogão de indução."],
     ["c02","cozinha","Air fryer","R$ 300–500","A partir de 4 litros."],
