@@ -41,7 +41,7 @@ window.CONFIG = {
     ["laco", "O chá", "Recepção a partir das 14h. Chegue um pouquinho antes para aproveitarmos cada momento juntas."],
     ["vestido", "O que vestir", "Madrinhas de vermelho, convidadas de rosa. Pode abusar dos laços!"],
     ["presente", "Chá de cozinha", "Para todas as convidadas: itens para a nossa casa nova. Reserve o seu na lista para ninguém repetir."],
-    ["lingerie", "Chá de lingerie", "Só para as madrinhas: um mimo para a lua de mel. Meus tamanhos estão na lista."],
+    ["lingerie", "Chá de lingerie", "Só para as madrinhas: me surpreendam com uma lingerie fina e sexy. Meus tamanhos estão na lista de presentes."],
     ["carro", "Estacionamento", "Há vagas na rua, ao redor do local."],
     ["tacas", "Brincadeiras", "Teremos brincadeiras, brindes e muitas risadas. Venha preparada!"]
   ],
@@ -54,7 +54,7 @@ window.CONFIG = {
     ["17:30", "Brinde final"]
   ],
 
-  notaPresentes: "Sua presença é o meu presente mais especial. Mas, se quiser me mimar, montei duas listinhas: uma de cozinha, para a nossa casa nova, e outra de lingerie, para a lua de mel.",
+  notaPresentes: "Sua presença é o meu presente mais especial. Mas, se quiser me mimar, montei uma listinha de cozinha para a nossa casa nova. E as madrinhas ficam com a lingerie da lua de mel, escolhida por elas!",
 
   // Apelidos (aparecem na seção "Nós dois" e no carimbo)
   apelidoNoiva: "Dani",
@@ -132,16 +132,5 @@ window.CONFIG = {
     ["k23", "cozinha", "Frigideira funda antiaderente Tramontina", "", "24cm.", "https://shopee.com.br/Frigideira-Funda-Antiaderente-Tramontina-24Cm-i.333246733.20111903242"],
     ["k24", "cozinha", "Assadeiras de vidro Marinex com tampa (6 peças)", "", "Tampa vermelha.", "https://shopee.com.br/Conjunto-de-Assadeiras-de-Vidro-Marinex-com-Tampa-Vermelha-6-Pe%C3%A7as-i.822103155.19099257146"],
     ["k25", "cozinha", "Jogo de copos canelados Cameratta", "", "Vidro, 420ml.", "https://shopee.com.br/Jogo-de-Copos-De-Vidro-Canelado-Cameratta-Agua-Suco-420ml-i.958447403.22794310334"],
-    ["l01","lingerie","Camisola de cetim","R$ 60–150","Veja meus tamanhos acima."],
-    ["l02","lingerie","Robe de cetim","R$ 70–160",""],
-    ["l03","lingerie","Conjunto de renda","R$ 60–150",""],
-    ["l04","lingerie","Body rendado","R$ 60–140",""],
-    ["l05","lingerie","Baby-doll","R$ 40–100",""],
-    ["l06","lingerie","Pijama de cetim","R$ 70–150","Calça ou short."],
-    ["l07","lingerie","Meia 7/8 com cinta-liga","R$ 40–90",""],
-    ["l08","lingerie","Kit de calcinhas","R$ 40–90","Algodão ou microfibra."],
-    ["l09","lingerie","Conjunto branco para a lua de mel","R$ 80–180",""],
-    ["l11","lingerie","Kit spa / óleo de massagem","R$ 50–120",""],
-    ["l12","lingerie","Necessaire de viagem","R$ 40–90","Para a lua de mel."]
   ]
 };
