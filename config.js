@@ -104,6 +104,7 @@ window.CONFIG = {
 
   // Endereço do app da Web do Google Apps Script (LEIA-ME, passo 2). Vazio = modo demonstração.
   // Música do site: cole o link do YouTube da música OU o caminho de um arquivo .mp3 na pasta "fotos"
+  versaoFotos: "2", // aumente este número quando trocar uma foto, para atualizar no celular das convidadas
   musica: { youtube: "", arquivo: "", titulo: "" },
 
   apiUrl: "https://script.google.com/macros/s/AKfycbw7wvfJCNbIUeQWw3ZkYM3oLAAct5c6ZdO-AK1gi-Wd0hp--Tqy4mA3-8JQfDYPXRx3uw/exec",

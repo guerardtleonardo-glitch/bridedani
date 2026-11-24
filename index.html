@@ -206,7 +206,7 @@ nav.menu ul a:hover{color:var(--vermelho)}
 .abas-wrap{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.2rem}
 .abas{display:flex;gap:.5rem}
 .psiu{--rr:-4deg}
-@media (max-width:560px){.psiu{white-space:normal;font-size:1.45rem}}
+@media (max-width:640px){.abas-wrap{flex-direction:column;align-items:stretch;gap:.2rem}.psiu{align-self:flex-end;flex-direction:row-reverse;margin-top:.6rem;font-size:1.35rem;white-space:nowrap;--rr:-3deg;margin-right:.4rem}.psiu svg{width:34px;height:26px;transform:rotate(100deg) scaleY(-1)}}
 .aba{appearance:none;font-family:var(--f-corpo);font-size:.9rem;text-transform:lowercase;padding:.55rem 1.3rem;border-radius:999px;border:1px solid var(--vermelho);background:transparent;color:var(--vermelho);cursor:pointer}
 .aba[aria-selected=true]{background:var(--vermelho);color:var(--branco)}
 .filtros{display:flex;gap:1rem}
@@ -561,7 +561,7 @@ textarea{min-height:110px;resize:vertical;border:1px solid var(--linha);padding:
 <button class="musica" id="musica" type="button" hidden aria-pressed="false" aria-label="Tocar música"><span class="ico" id="mus-ico"></span><span class="txt" id="mus-txt">tocar música</span></button>
 <div id="yt-box" aria-hidden="true"></div>
 
-<script src="config.js?v=202611240149"></script>
+<script src="config.js?v=202611241448"></script>
 <script>
 document.documentElement.classList.add("js");
 const C=window.CONFIG,$=id=>document.getElementById(id);
@@ -599,11 +599,12 @@ function el(t,a={},...k){const n=document.createElement(t);for(const[x,v]of Obje
 function toast(m){const t=$("toast");t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,4200)}
 function ls(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k));localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}}
 function token(){let t=ls("cha_token");if(!t){t=Math.random().toString(36).slice(2)+Date.now().toString(36);ls("cha_token",t)}return t}
-function img(src,alt){const i=el("img",{src,alt,loading:"lazy"});i.onerror=()=>{if(!i.src.endsWith(PLACE))i.src=PLACE};return i}
+const FV="?f="+(C.versaoFotos||"1");
+function img(src,alt){const i=el("img",{src:src+FV,alt,loading:"lazy"});let t=0;i.onerror=()=>{if(i.src.endsWith(PLACE))return;if(t++<2){setTimeout(()=>{i.src=src+FV+"&r="+Date.now()},800*t)}else i.src=PLACE};return i}
 let nL=0;
 function foto(par,cls="",laco){const [src,leg]=Array.isArray(par)?par:[par,""];const f=el("figure",{class:"foto "+cls},img(src,leg||"Foto"));if(leg)f.append(el("figcaption",{text:leg}));
   if(laco){const v=[["50%","0deg","50px"],["26%","-14deg","44px"],["74%","12deg","44px"]][nL++%3];f.append(el("span",{class:"laco",style:"--lx:"+v[0]+";--lr:"+v[1]+";--lw:"+v[2],html:LACO_P}))}return f}
-function bgFoto(node,src){const im=new Image();im.onload=()=>node.style.backgroundImage="url('"+src+"')";im.src=src}
+function bgFoto(node,src){src+=FV;const im=new Image();im.onload=()=>node.style.backgroundImage="url('"+src+"')";im.src=src}
 const inicio=new Date(C.dataISO),fim=new Date(inicio.getTime()+C.duracaoHoras*3600e3),TZ={timeZone:"America/Sao_Paulo"};
 const dd=inicio.toLocaleDateString("pt-BR",{day:"numeric",...TZ}),mm=inicio.toLocaleDateString("pt-BR",{month:"long",...TZ}),aa=inicio.toLocaleDateString("pt-BR",{year:"numeric",...TZ});
 const dd2=inicio.toLocaleDateString("pt-BR",{day:"2-digit",...TZ}),mm2=inicio.toLocaleDateString("pt-BR",{month:"2-digit",...TZ});
@@ -618,7 +619,7 @@ function preencher(){
   document.querySelectorAll("[data-svg]").forEach(n=>{n.innerHTML=DES[n.dataset.svg]||""});
   const noiva=C.apelidoNoiva,casal=C.apelidoNoiva+" & "+C.apelidoNoivo;
   document.title="A "+noiva+" vai casar";
-  [["--capa-l",C.fotos.capaHero||C.fotos.local],["--capa-m",C.fotos.capaHeroCelular]].forEach(([v,src])=>{if(!src)return;const im=new Image();im.onload=()=>document.documentElement.style.setProperty(v,"url('"+src+"')");im.src=src});
+  [["--capa-l",C.fotos.capaHero||C.fotos.local],["--capa-m",C.fotos.capaHeroCelular]].forEach(([v,src])=>{if(!src)return;src+=FV;const im=new Image();im.onload=()=>document.documentElement.style.setProperty(v,"url('"+src+"')");im.src=src});
   $("marca-casal").textContent=casal;
   $("titulo-capa").textContent="a "+noiva.toLowerCase()+" vai casar.";
   $("capa-data").textContent=dd2+" · "+mm2+" · "+aa+"  ·  "+C.cidade;
