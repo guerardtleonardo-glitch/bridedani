@@ -540,7 +540,7 @@ textarea{min-height:110px;resize:vertical;border:1px solid var(--linha);padding:
 <div class="demo" id="demo" hidden>Modo demonstração: as respostas ficam salvas só neste navegador até a planilha ser conectada.</div>
 <div class="toast" id="toast" role="status" hidden></div>
 
-<script src="config.js?v=202611240001"></script>
+<script src="config.js?v=202611240109"></script>
 <script>
 document.documentElement.classList.add("js");
 const C=window.CONFIG,$=id=>document.getElementById(id);
@@ -678,7 +678,7 @@ function render(){
 function card(i){
   const r=S.reservas[i.id],meu=r&&(ls("cha_meus")||[]).includes(i.id);
   const c=el("article",{class:"item"+(r?" res":"")},el("span",{class:"tag",text:i.cat==="lingerie"?"lingerie · só madrinhas":"cozinha · convidadas"}),
-    el("h3",{text:i.nome}),el("span",{class:"preco",text:i.preco}),i.nota?el("p",{class:"obs",text:i.nota}):null,
+    el("h3",{text:i.nome}),i.preco?el("span",{class:"preco",text:i.preco}):null,i.nota?el("p",{class:"obs",text:i.nota}):null,
     r?el("span",{class:"reservado",html:DES.coracao},document.createTextNode("reservado por "+r.nome)):null);
   if(S.abrindo===i.id&&!r){
     const inp=el("input",{type:"text",id:"nome-"+i.id,maxlength:"60",placeholder:"seu nome",autocomplete:"name","aria-label":"Seu nome"});
