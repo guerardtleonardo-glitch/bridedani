@@ -310,6 +310,18 @@ textarea{min-height:110px;resize:vertical;border:1px solid var(--linha);padding:
 .sim-quando{margin-top:.8rem;font-weight:500;font-size:.74rem;letter-spacing:.3em;text-transform:uppercase}
 @media (max-width:520px){.sim-num{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem}.sim-num div{min-width:0;padding:.9rem .2rem .7rem;border-radius:12px}.sim-num span{letter-spacing:.12em;font-size:.55rem}}
 
+/* botão de música */
+.musica{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom));z-index:45;display:flex;align-items:center;gap:.55rem;padding:.55rem 1rem .55rem .55rem;border-radius:999px;border:1px solid var(--vermelho);background:var(--branco);color:var(--vermelho);font-family:var(--f-corpo);font-size:.82rem;cursor:pointer;box-shadow:0 8px 24px rgba(59,20,24,.18)}
+.musica .ico{width:34px;height:34px;border-radius:50%;background:var(--vermelho);color:var(--branco);display:grid;place-items:center}
+.musica .ico svg{width:16px;height:16px}
+.musica[aria-pressed=true] .ico{animation:gira-disco 4s linear infinite}
+.musica[aria-pressed=true] .txt{display:none}
+.musica[aria-pressed=true]{padding:.55rem}
+@keyframes gira-disco{to{transform:rotate(360deg)}}
+.demo:not([hidden])~.musica{bottom:calc(46px + env(safe-area-inset-bottom))}
+#yt-box{position:fixed;left:-9999px;top:0;width:200px;height:200px;overflow:hidden}
+@media (prefers-reduced-motion:reduce){.musica[aria-pressed=true] .ico{animation:none}}
+
 /* rodapé */
 .rodape{background:var(--creme);text-align:center;padding-block:4.5rem calc(4.5rem + env(safe-area-inset-bottom))}
 .rodape .laco-ico{width:56px;margin:0 auto;color:var(--vermelho)}
@@ -546,8 +558,10 @@ textarea{min-height:110px;resize:vertical;border:1px solid var(--linha);padding:
 
 <div class="demo" id="demo" hidden>Modo demonstração: as respostas ficam salvas só neste navegador até a planilha ser conectada.</div>
 <div class="toast" id="toast" role="status" hidden></div>
+<button class="musica" id="musica" type="button" hidden aria-pressed="false" aria-label="Tocar música"><span class="ico" id="mus-ico"></span><span class="txt" id="mus-txt">tocar música</span></button>
+<div id="yt-box" aria-hidden="true"></div>
 
-<script src="config.js?v=202611240120"></script>
+<script src="config.js?v=202611240149"></script>
 <script>
 document.documentElement.classList.add("js");
 const C=window.CONFIG,$=id=>document.getElementById(id);
@@ -755,6 +769,26 @@ $("form-recado").addEventListener("submit",async e=>{
   catch(err){toast(err.code==="limite"?"Você já deixou alguns recados. Obrigada pelo carinho!":"Não foi possível publicar agora. Tente de novo.")}
   finally{b.disabled=false}
 });
+
+/* ================= música ================= */
+(function(){
+  const M=C.musica||{};const yt=(M.youtube||"").match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);const ytId=yt&&yt[1];
+  if(!ytId&&!M.arquivo)return;
+  const bt=$("musica"),ico=$("mus-ico"),txt=$("mus-txt");bt.hidden=false;
+  const PLAY='<svg viewBox="0 0 16 16"><path fill="currentColor" d="M4 2.5v11l9-5.5z"/></svg>',NOTA='<svg viewBox="0 0 16 16"><path fill="currentColor" d="M6 2v8.3A2.5 2.5 0 1 0 7.5 12.5V5.2l5-1.2v5.3A2.5 2.5 0 1 0 14 11.5V1z"/></svg>';
+  ico.innerHTML=PLAY;if(M.titulo)txt.textContent="♪ "+M.titulo;
+  let tocando=false,player=null,pronto=false,pendente=false,audio=null;
+  function marca(v){tocando=v;bt.setAttribute("aria-pressed",v);bt.setAttribute("aria-label",v?"Pausar música":"Tocar música");ico.innerHTML=v?NOTA:PLAY}
+  function tocar(){if(audio){audio.play().then(()=>marca(true)).catch(()=>{});return}if(pronto){player.playVideo();marca(true)}else pendente=true}
+  function pausar(){if(audio)audio.pause();else if(pronto)player.pauseVideo();marca(false)}
+  if(ytId){
+    const host=el("div",{id:"yt-player"});$("yt-box").append(host);
+    window.onYouTubeIframeAPIReady=function(){player=new YT.Player("yt-player",{width:200,height:200,videoId:ytId,playerVars:{autoplay:0,controls:0,loop:1,playlist:ytId,playsinline:1},events:{onReady:()=>{pronto=true;player.setVolume(60);if(pendente){player.playVideo();marca(true)}}}})};
+    const sc=document.createElement("script");sc.src="https://www.youtube.com/iframe_api";document.head.append(sc);
+  }else{audio=new Audio(M.arquivo);audio.loop=true;audio.volume=.6}
+  bt.addEventListener("click",e=>{e.stopPropagation();tocando?pausar():tocar();ls("cha_musica_off",tocando?0:1)});
+  if(!ls("cha_musica_off")){const primeiro=e=>{if(e.target.closest&&e.target.closest("#musica"))return;document.removeEventListener("pointerdown",primeiro,true);tocar()};document.addEventListener("pointerdown",primeiro,true)}
+})();
 
 /* ================= início ================= */
 document.querySelectorAll(".aba").forEach(b=>b.addEventListener("click",()=>{S.aba=b.dataset.aba;S.abrindo=null;render()}));
